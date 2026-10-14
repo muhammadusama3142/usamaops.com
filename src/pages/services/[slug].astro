@@ -1,0 +1,201 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Contact from '../../components/Contact.astro';
+import CheckList from '../../components/CheckList.astro';
+import { services, getService, servicePath, type Service } from '../../data/services';
+import { site, mailto, whatsapp } from '../../site';
+import { personNode, personId, homeUrl, faqNode, breadcrumbNode } from '../../lib/schema';
+
+export function getStaticPaths() {
+  return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
+}
+
+interface Props {
+  service: Service;
+}
+
+const { service: s } = Astro.props;
+const url = `${site.url}${servicePath(s.slug)}`;
+const related = s.related.map(getService);
+
+const jsonLd = [
+  personNode,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${url}#service`,
+    name: s.name,
+    serviceType: s.serviceType,
+    description: s.description,
+    url,
+    provider: { '@id': personId },
+    areaServed: 'Worldwide',
+    offers: {
+      '@type': 'Offer',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        priceCurrency: 'USD',
+        minPrice: s.min,
+        maxPrice: s.max,
+      },
+    },
+  },
+  breadcrumbNode([
+    { name: 'Home', url: homeUrl },
+    { name: 'Services', url: `${site.url}/services/` },
+    { name: s.name, url },
+  ]),
+  faqNode(s.faqs),
+];
+---
+
+<Base title={s.title} description={s.description}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <Header />
+
+  <main id="main">
+    <nav class="container breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span aria-hidden="true">/</span><a href="/services/">Services</a><span aria-hidden="true">/</span><span aria-current="page">{s.name}</span>
+    </nav>
+
+    <section class="container page-hero" aria-labelledby="page-title">
+      <div class="page-hero-copy">
+        <p class="eyebrow">{s.eyebrow}</p>
+        <h1 id="page-title">{s.h1}</h1>
+        <p class="hero-lead">{s.lead}</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href={mailto(s.name)}>Email me about this</a>
+          <a class="btn btn-secondary" href={whatsapp(`Hi Usama, I found you on usamaops.com and I'm interested in ${s.name}.`)}>Message on WhatsApp</a>
+        </div>
+      </div>
+      <aside class="facts" aria-label="At a glance">
+        <dl>
+          <dt>Timeline</dt>
+          <dd>{s.timeline}</dd>
+          <dt>Price</dt>
+          <dd>{s.price}{s.priceNote && <span class="facts-note">{s.priceNote}</span>}</dd>
+          <dt>Best for</dt>
+          <dd>{s.bestFor}</dd>
+          <dt>Starts with</dt>
+          <dd>An NDA and read-only access</dd>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="container section section-tight" aria-labelledby="signs-title">
+      <p class="eyebrow">Is this you?</p>
+      <h2 class="section-title" id="signs-title">Signs you need {s.noun}.</h2>
+      <div class="block">
+        <CheckList items={s.signs} columns />
+      </div>
+    </section>
+
+    <section class="container section" aria-labelledby="approach-title">
+      <p class="eyebrow">What I do</p>
+      <h2 class="section-title" id="approach-title">{s.approachTitle}.</h2>
+      <div class="grid grid-2">
+        {
+          s.approach.map((a, i) => (
+            <div class="card">
+              <div class="card-num">{String(i + 1).padStart(2, '0')}</div>
+              <h3>{a.title}</h3>
+              <p>{a.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="container section" aria-labelledby="get-title">
+      <p class="eyebrow">What you get</p>
+      <h2 class="section-title" id="get-title">{s.packages ? 'Three ways to start.' : 'Fixed scope, fixed price.'}</h2>
+      {
+        s.packages ? (
+          <div class="grid grid-3">
+            {s.packages.map((p) => (
+              <div class="package">
+                <div class="package-head">
+                  <h3>{p.name}</h3>
+                  <span class="package-time">{p.time}</span>
+                </div>
+                <p class="package-price">{p.price}</p>
+                <p>{p.body}</p>
+                <a class="package-link" href={mailto(p.name)}>Ask about this →</a>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div class="get">
+            <div class="get-list">
+              <CheckList items={s.deliverables} />
+            </div>
+            <div class="package get-price">
+              <div class="package-head">
+                <h3>{s.name}</h3>
+                <span class="package-time">{s.timeline}</span>
+              </div>
+              <p class="package-price">{s.price}</p>
+              {s.priceNote && <p>{s.priceNote}</p>}
+              {s.guarantee && <p class="package-guarantee">{s.guarantee}</p>}
+              <p>Prices in USD. 50% upfront, 50% on delivery.</p>
+              <a class="btn btn-primary" href={mailto(s.name)}>Book a free 20-minute call</a>
+            </div>
+          </div>
+        )
+      }
+      {s.note && <p class="note">{s.note}</p>}
+    </section>
+
+    {
+      s.proof && (
+        <section class="container section" aria-labelledby="proof-title">
+          <p class="eyebrow">Proof</p>
+          <h2 class="section-title" id="proof-title">From real production work.</h2>
+          <article class="case case-single">
+            <span class="case-kicker">{s.proof.kicker}</span>
+            <h3>{s.proof.title}</h3>
+            <p>{s.proof.body}</p>
+            <a href="/#work">More production stories →</a>
+          </article>
+        </section>
+      )
+    }
+
+    <section class="container section" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="section-title" id="faq-title">Common questions.</h2>
+      <div class="faq">
+        {
+          s.faqs.map((f) => (
+            <div class="faq-item">
+              <h3>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="container section section-last" aria-labelledby="related-title">
+      <p class="eyebrow">Related services</p>
+      <h2 class="section-title" id="related-title">Often paired with.</h2>
+      <div class="grid grid-3">
+        {
+          related.map((r) => (
+            <a class="card card-link" href={servicePath(r.slug)}>
+              <span class="card-num">{r.price}</span>
+              <h3>{r.name}</h3>
+              <p>{r.summary}</p>
+              <span class="card-more">Learn more →</span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+
+  <Contact heading={`Talk to me about ${s.name}.`} subject={s.name} />
+  <Footer />
+</Base>
