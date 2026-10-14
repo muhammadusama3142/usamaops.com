@@ -1,0 +1,81 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Contact from '../../components/Contact.astro';
+import { services, servicePath } from '../../data/services';
+import { site, mailto } from '../../site';
+import { personNode, homeUrl, breadcrumbNode } from '../../lib/schema';
+
+const title = 'DevOps, SRE & AI Consulting Services | UsamaOps';
+const description =
+  'Fixed-price DevOps, SRE and AI consulting: infrastructure audits, cloud cost optimization, CI/CD and Terraform, SOC 2 and PCI DSS readiness, and more.';
+const url = `${site.url}/services/`;
+
+const jsonLd = [
+  personNode,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'DevOps, SRE and AI consulting services',
+    itemListElement: services.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: s.name,
+      url: `${site.url}${servicePath(s.slug)}`,
+    })),
+  },
+  breadcrumbNode([
+    { name: 'Home', url: homeUrl },
+    { name: 'Services', url },
+  ]),
+];
+---
+
+<Base title={title} description={description}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <Header />
+
+  <main id="main">
+    <nav class="container breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Services</span>
+    </nav>
+
+    <section class="container page-hero page-hero-single" aria-labelledby="page-title">
+      <div class="page-hero-copy">
+        <p class="eyebrow">Services</p>
+        <h1 id="page-title">DevOps, SRE and AI consulting services.</h1>
+        <p class="hero-lead">
+          Fixed scope, fixed price, clear deliverables, for startups and established businesses alike. Every engagement
+          starts with an NDA and read-only access, and you own everything at the end. Prices in USD; 50% upfront, 50%
+          on delivery.
+        </p>
+      </div>
+    </section>
+
+    <section class="container section section-tight section-last" aria-label="All services">
+      <div class="grid grid-2 grid-flush">
+        {
+          services.map((s) => (
+            <a class="card card-link" href={servicePath(s.slug)}>
+              <span class="card-num">{s.eyebrow}</span>
+              <h2 class="card-title">{s.name}</h2>
+              <p>{s.summary}</p>
+              <p class="card-meta">
+                {s.price} · {s.timeline}
+              </p>
+              <span class="card-more">Learn more →</span>
+            </a>
+          ))
+        }
+        <a class="card-cta card-cta-wide" href={mailto('Not sure where to start')}>
+          <span class="card-num">Not sure where to start?</span>
+          <strong>Email me what's going on, and I'll point you to the right one →</strong>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Contact />
+  <Footer />
+</Base>

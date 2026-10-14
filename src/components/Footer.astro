@@ -1,0 +1,12 @@
+---
+import { site, whatsapp } from '../site';
+
+const year = new Date().getUTCFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <span>© {year} {site.name} · {site.brand} · <a href="/services/">Services</a> · <a href={`mailto:${site.email}`}>{site.email}</a> · <a href={whatsapp()}>WhatsApp</a></span>
+    <span class="mono">Built with Astro · hosted on Cloudflare Pages · <a href={site.repo}>source</a></span>
+  </div>
+</footer>

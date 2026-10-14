@@ -2,7 +2,7 @@
 
 > Muhammad Usama, trading as UsamaOps (usamaops.com), is a freelance Senior DevOps and Site Reliability Engineer based in Lahore, Pakistan (UTC+5), working remotely with startups, SaaS companies and established businesses worldwide. Runs PCI DSS-scoped payment infrastructure in production on AWS, Huawei Cloud, Kubernetes and Terraform. Sells fixed-price packages for cloud cost reduction, CI/CD and infrastructure as code, TLS certificate automation, SOC 2 / PCI DSS infrastructure readiness, and low-cost AI integration.
 
-Contact: hello@usamaops.com. All prices are in USD. Available for fixed-price projects or as a remote, fractional DevOps/SRE engineer on a monthly retainer.
+Contact: hello@usamaops.com or WhatsApp +92 313 4236974 (https://wa.me/923134236974). All prices are in USD. Available for fixed-price projects or as a remote, fractional DevOps/SRE engineer on a monthly retainer.
 
 ## DevOps & SRE packages
 
@@ -22,6 +22,14 @@ Contact: hello@usamaops.com. All prices are in USD. Available for fixed-price pr
 ## Links
 
 - [Homepage](https://usamaops.com/): services, case studies, FAQ and contact
+- [All services](https://usamaops.com/services/)
+- [DevOps & cloud infrastructure audit](https://usamaops.com/services/infrastructure-audit/)
+- [AWS & cloud cost optimization](https://usamaops.com/services/cloud-cost-optimization/)
+- [CI/CD, Terraform & Kubernetes](https://usamaops.com/services/ci-cd-terraform-kubernetes/)
+- [SOC 2 & PCI DSS infrastructure readiness](https://usamaops.com/services/soc2-pci-dss-compliance/)
+- [TLS certificate automation](https://usamaops.com/services/tls-certificate-automation/)
+- [Fractional & remote DevOps engineer](https://usamaops.com/services/fractional-devops-engineer/)
+- [AI integration & LLM cost control](https://usamaops.com/services/ai-integration/)
 - [LinkedIn](https://www.linkedin.com/in/muhammad-usama-8894b4201/)
 - [GitHub](https://github.com/muhammadusama3142)
 - [Site source code](https://github.com/muhammadusama3142/usamaops.com)
