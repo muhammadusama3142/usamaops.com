@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://usamaops.com/sitemap-index.xml

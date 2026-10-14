@@ -1,0 +1,384 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, mailto } from '../site';
+
+// Build facts for the "this site runs on" panel. Cloudflare Pages sets CF_PAGES_COMMIT_SHA at build time.
+const sha = process.env.CF_PAGES_COMMIT_SHA || process.env.GITHUB_SHA || '';
+const shortSha = sha ? sha.slice(0, 7) : 'local';
+const commitUrl = sha ? `${site.repo}/commit/${sha}` : site.repo;
+const builtAt = new Date();
+const builtLabel = `${builtAt.toISOString().slice(0, 10)} ${builtAt.toISOString().slice(11, 16)} UTC`;
+
+const title = 'Muhammad Usama — DevOps & SRE for startups';
+const description =
+  'Senior DevOps/SRE who runs PCI DSS payment infrastructure in production. Fixed-price packages for startups: infrastructure health checks, cloud cost cuts, certificate automation, CI/CD and compliance-ready infrastructure.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Muhammad Usama — DevOps & SRE',
+  url: site.url,
+  email: site.email,
+  areaServed: 'Worldwide',
+  founder: {
+    '@type': 'Person',
+    name: site.name,
+    jobTitle: 'Senior DevOps & Site Reliability Engineer',
+    address: { '@type': 'PostalAddress', addressLocality: 'Lahore', addressCountry: 'PK' },
+    sameAs: [site.linkedin, site.github],
+  },
+};
+
+const problems = [
+  {
+    title: 'The cloud bill keeps climbing',
+    body: "Idle resources, oversized instances, no commitments. Flexera's 2026 survey puts wasted cloud spend at 29%.",
+  },
+  {
+    title: 'Deploys feel risky',
+    body: 'Manual steps, no rollback, and one person who knows how it all works.',
+  },
+  {
+    title: 'Certificates expire and take you down',
+    body: 'From March 15, 2027, public TLS certificates max out at 100 days. Manual renewal stops scaling.',
+  },
+  {
+    title: 'An audit is coming',
+    body: 'SOC 2 or PCI DSS controls your compliance platform keeps flagging: IAM, MFA, logging, encryption, backups.',
+  },
+  {
+    title: 'Customers find outages first',
+    body: 'No dashboards, no alerts, no on-call runbook for the night something breaks.',
+  },
+];
+
+const packages = [
+  {
+    name: 'Cloud Cost Teardown',
+    time: '1–2 weeks',
+    price: '$1,200–2,000',
+    body: 'Bill and usage analysis, rightsizing, commitments, storage and egress, idle resources. Quick wins implemented, not just listed.',
+    guarantee:
+      'At least 2× the fee in annualised savings, or no charge. For teams spending $3,000+ a month on cloud.',
+  },
+  {
+    name: 'Cert & Secrets Automation',
+    time: '1–2 weeks',
+    price: '$2,000–4,000',
+    body: 'Inventory every certificate, automate renewal with ACME and cert-manager, add expiry alerts and a rotation runbook. Ready for 100-day certificates.',
+  },
+  {
+    name: 'CI/CD + IaC Foundation',
+    time: '2–4 weeks',
+    price: '$3,000–6,000',
+    body: 'Terraform modules, GitHub Actions pipelines, environments, secrets management and rollback your whole team can trust.',
+  },
+  {
+    name: 'Compliance Infra Readiness',
+    time: '2–4 weeks',
+    price: '$3,000–8,000',
+    body: 'SOC 2 or PCI DSS: I fix the infrastructure controls your compliance platform flags, from IAM and MFA to logging, encryption, backups and access reviews.',
+  },
+];
+
+const cases = [
+  {
+    kicker: 'Payments · PCI DSS scope',
+    title: 'Emergency mTLS certificate rotation across ~30 microservices',
+    problem:
+      'A critical mTLS certificate expiry hit ~30 services at once, plus the wildcard certificate on the load balancer.',
+    did: 'Rotated certificates across every affected service and the load balancer, and brought service-to-service traffic back up.',
+    tags: ['mTLS', 'Kubernetes', 'Load balancer'],
+  },
+  {
+    kicker: 'Payments · private network',
+    title: 'CI/CD into private production with zero inbound access',
+    problem: 'Production servers sit on private IPs, so push-based deploys meant opening the network.',
+    did: 'Built pull-based GitHub Actions deploys: artifacts land in object storage, a serverless function triggers an on-host agent that pulls and deploys.',
+    tags: ['GitHub Actions', 'Huawei Cloud', 'Serverless trigger'],
+  },
+  {
+    kicker: 'Payments · card issuing',
+    title: 'Encrypted card-file pipeline with a card-production bureau',
+    problem: 'Card embossing files had to reach an external bureau with nothing exposed in transit.',
+    did: "SFTP with PGP encryption to the bureau's RSA key, plus IP allowlisting through the NAT gateway.",
+    tags: ['SFTP', 'PGP', 'NAT allowlisting'],
+  },
+  {
+    kicker: 'Payments · AI-assisted build',
+    title: 'Automated, PAN-free reporting pipeline',
+    problem: 'Card-network reports arrived encrypted over SFTP and needed pulling, decrypting and forwarding by hand.',
+    did: 'A Node.js pipeline, built with Claude Code, that pulls, decrypts and emails the reports, verified to carry no card numbers.',
+    tags: ['Node.js', 'SFTP + PGP', 'Claude Code'],
+  },
+];
+
+const steps = [
+  { name: 'Audit', body: 'Read-only access. I map what you run, what it costs and where it can fail.' },
+  { name: 'Plan', body: 'A prioritised 30/60/90-day plan with a fixed price for each step.' },
+  { name: 'Implement', body: 'Changes through code review and infrastructure as code, not console clicks.' },
+  { name: 'Handover', body: 'Runbooks, diagrams and a walkthrough so your team runs it without me.' },
+];
+---
+
+<Base title={title} description={description}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/" aria-label="Muhammad Usama, home">
+        <span class="brand-mark" aria-hidden="true">MU</span>
+        <span class="brand-name">Muhammad Usama</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#process">How I work</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="#contact">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="container hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">DevOps &amp; SRE for startups · Remote from Lahore (UTC+5)</p>
+        <h1 id="hero-title">I make startup infrastructure secure, compliant and cheaper to run.</h1>
+        <p class="hero-lead">
+          Senior DevOps/SRE. By day I run PCI DSS payment infrastructure in production on AWS, Huawei Cloud,
+          Kubernetes and Terraform. For startups, I work in fixed-price packages, not open-ended hours.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href={mailto('Free 20-minute infra review')}>Book a free 20-min infra review</a>
+          <a class="btn btn-secondary" href="#services">See the Health Check →</a>
+        </div>
+        <p class="hero-note">Overlaps US East Coast mornings and the full Gulf working day.</p>
+      </div>
+
+      <aside class="infra-panel" aria-label="How this site is built and deployed">
+        <div class="infra-head">
+          <span>usamaops.com / production</span>
+          <span class="infra-status"><span class="infra-dot" aria-hidden="true"></span>deployed</span>
+        </div>
+        <dl class="infra-list">
+          <dt>last_deploy</dt>
+          <dd><time datetime={builtAt.toISOString()}>{builtLabel}</time></dd>
+          <dt>commit</dt>
+          <dd><a href={commitUrl}>{shortSha}</a></dd>
+          <dt>hosting</dt>
+          <dd>Cloudflare Pages · $0 / mo</dd>
+          <dt>tls</dt>
+          <dd>Universal SSL · auto-renewed</dd>
+          <dt>headers</dt>
+          <dd>CSP · HSTS · nosniff</dd>
+        </dl>
+        <div class="infra-foot">
+          <div>git push → CI checks → build → global CDN</div>
+          <div>No client-side JavaScript. No trackers.</div>
+          <a href={site.repo}>View the source →</a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="trust" aria-label="Hands-on experience">
+      <div class="container">
+        <span class="trust-label">Hands-on in production with</span>
+        <span class="trust-item">PCI DSS</span>
+        <span class="trust-item">ISO/IEC 27001</span>
+        <span class="trust-item">AWS</span>
+        <span class="trust-item">Huawei Cloud</span>
+        <span class="trust-item">Kubernetes</span>
+        <span class="trust-item">Terraform</span>
+        <span class="trust-item">Ansible</span>
+        <span class="trust-item">GitHub Actions</span>
+      </div>
+    </section>
+
+    <section class="container section" id="problems" aria-labelledby="problems-title">
+      <p class="eyebrow">Problems I fix</p>
+      <h2 class="section-title" id="problems-title">If one of these is on your plate this quarter, we should talk.</h2>
+      <div class="grid grid-3">
+        {
+          problems.map((p, i) => (
+            <div class="card">
+              <div class="card-num">{String(i + 1).padStart(2, '0')}</div>
+              <h3>{p.title}</h3>
+              <p>{p.body}</p>
+            </div>
+          ))
+        }
+        <a class="card-cta" href="#services">
+          <span class="card-num">Not sure where you stand?</span>
+          <strong>Start with a 5-day Infrastructure Health Check →</strong>
+        </a>
+      </div>
+    </section>
+
+    <section class="container section" id="services" aria-labelledby="services-title">
+      <p class="eyebrow">Packages</p>
+      <h2 class="section-title" id="services-title">Fixed scope. Fixed price. Clear deliverables.</h2>
+      <p class="section-lead">Every engagement starts read-only. Prices in USD; 50% upfront, 50% on delivery.</p>
+
+      <div class="featured">
+        <div class="featured-main">
+          <span class="badge">Start here</span>
+          <h3>Infrastructure Health Check</h3>
+          <p class="featured-time">5 business days</p>
+          <p class="featured-price">$750</p>
+          <p class="featured-note">Intro price for the first 3 clients, then $1,500.</p>
+          <a class="btn btn-primary" href={mailto('Infrastructure Health Check')}>Book the Health Check</a>
+        </div>
+        <ul class="check-list featured-list">
+          {
+            [
+              'Read-only review of your cloud, CI/CD, security, monitoring and certificates',
+              'Risk-scored report with a 30/60/90-day plan',
+              '60-minute walkthrough call with your team',
+              'Fee credited in full if you book implementation',
+            ].map((item) => (
+              <li>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 10.5l4 4 8-9" />
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="grid grid-2 grid-tight">
+        {
+          packages.map((p) => (
+            <div class="package">
+              <div class="package-head">
+                <h3>{p.name}</h3>
+                <span class="package-time">{p.time}</span>
+              </div>
+              <p class="package-price">{p.price}</p>
+              <p>{p.body}</p>
+              {p.guarantee && <p class="package-guarantee">{p.guarantee}</p>}
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="package package-wide">
+        <div>
+          <div class="package-head package-head-start">
+            <h3>Fractional DevOps/SRE</h3>
+            <span class="package-time">monthly · 3-month minimum</span>
+          </div>
+          <p>Up to 20–30 hours a month, business-hours support and a monthly report. Ideal until your first DevOps hire starts.</p>
+        </div>
+        <p class="package-price">$1,500–3,000<span> / month</span></p>
+      </div>
+    </section>
+
+    <section class="container section" id="work" aria-labelledby="work-title">
+      <p class="eyebrow">Selected work</p>
+      <h2 class="section-title" id="work-title">Production stories from a regulated payments stack.</h2>
+      <p class="section-lead">Company and client details are anonymised. Full write-ups will follow.</p>
+      <div class="grid grid-2">
+        {
+          cases.map((c) => (
+            <article class="case">
+              <span class="case-kicker">{c.kicker}</span>
+              <h3>{c.title}</h3>
+              <dl>
+                <dt>Problem</dt>
+                <dd>{c.problem}</dd>
+                <dt>What I did</dt>
+                <dd>{c.did}</dd>
+              </dl>
+              <div class="tags">
+                {c.tags.map((t) => <span class="tag">{t}</span>)}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="container section" id="process" aria-labelledby="process-title">
+      <p class="eyebrow">How I work</p>
+      <h2 class="section-title" id="process-title">Four steps, and you own everything at the end.</h2>
+      <ol class="steps">
+        {
+          steps.map((s, i) => (
+            <li>
+              <div class="card-num">{String(i + 1).padStart(2, '0')}</div>
+              <h3>{s.name}</h3>
+              <p>{s.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+      <ul class="safeguards">
+        <li>
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="12" height="8" rx="2"></rect><path d="M7 9V6.5a3 3 0 0 1 6 0V9"></path></svg>
+          <span>Least-privilege roles through your SSO, with MFA</span>
+        </li>
+        <li>
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h6l3 3v11H6z"></path><path d="M9 10h4M9 13h4"></path></svg>
+          <span>NDA signed before any access</span>
+        </li>
+        <li>
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h12M4 10h12M4 15h7"></path></svg>
+          <span>Every change logged; access revoked at handover</span>
+        </li>
+        <li>
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6.5"></circle><path d="M7.5 10.5l1.8 1.8 3.4-3.8"></path></svg>
+          <span>AI tooling only with no data retention</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="container section about" id="about" aria-labelledby="about-title">
+      <div class="about-body">
+        <p class="eyebrow">About</p>
+        <h2 class="section-title" id="about-title">Hi, I'm Usama.</h2>
+        <p class="about-text">
+          I'm a Senior DevOps Engineer in Lahore with 4+ years running production infrastructure, today for a
+          payments company where PCI DSS isn't optional. I take on a small number of startup projects alongside
+          that work, so each one gets senior attention.
+        </p>
+        <p class="about-text">
+          My favourite problems are the unglamorous ones: certificates, keys, access and audits, plus the cloud
+          bill nobody has looked at in a year.
+        </p>
+        <p class="about-meta">
+          BSc Computer Science, GC University Lahore · AWS · Huawei Cloud · Kubernetes · Terraform · Ansible
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="contact-copy">
+        <h2 id="contact-title">Book a free 20-minute infra review.</h2>
+        <p>
+          Bring your cloud bill, your deploy process or your audit deadline. You'll leave with three concrete next
+          steps, whether or not we work together.
+        </p>
+      </div>
+      <div class="contact-actions">
+        <a class="btn btn-light" href={mailto('Free 20-minute infra review')}>Email me →</a>
+        <div class="contact-links">
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <a href={site.linkedin}>LinkedIn</a>
+          <a href={site.github}>GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© {builtAt.getUTCFullYear()} Muhammad Usama</span>
+      <span class="mono">Built with Astro · hosted on Cloudflare Pages · <a href={site.repo}>source</a></span>
+    </div>
+  </footer>
+</Base>
