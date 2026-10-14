@@ -166,8 +166,12 @@ const faqs = [
     a: 'My work is fixed-price, so you know the cost before anything starts. The Infrastructure Health Check is $750 for my first three clients, then $1,500. Projects run $1,200–8,000 depending on scope, and fractional DevOps/SRE support is $1,500–3,000 a month.',
   },
   {
-    q: 'Can you reduce our AWS or cloud bill?',
-    a: 'Yes. The Cloud Cost Teardown reviews usage, rightsizing, commitments, storage and egress, then implements the quick wins. For teams spending $3,000 or more a month on cloud, I guarantee at least twice the fee in annualised savings or you pay nothing.',
+    q: 'Can you reduce our AWS, Google Cloud or Oracle Cloud bill?',
+    a: 'Yes. The Cloud Cost Teardown reviews usage, rightsizing, commitments, storage and egress on any of the major clouds, then implements the quick wins. For teams spending $3,000 or more a month on cloud, I guarantee at least twice the fee in annualised savings or you pay nothing.',
+  },
+  {
+    q: 'Which cloud providers do you work with?',
+    a: 'AWS, Google Cloud (GCP), Oracle Cloud (OCI) and Huawei Cloud, plus multi-cloud setups that combine them. The tooling I build with, such as Terraform, Kubernetes and GitHub Actions, works the same way across all of them.',
   },
   {
     q: 'Do you only work with startups?',
@@ -236,10 +240,10 @@ const check = 'M4 10.5l4 4 8-9';
         <p class="eyebrow">Freelance DevOps, SRE &amp; AI consultant · Remote from Lahore, Pakistan</p>
         <h1 id="hero-title">I make your cloud infrastructure secure, compliant and cheaper to run.</h1>
         <p class="hero-lead">
-          Senior DevOps/SRE for startups, SaaS teams and established businesses. By day I run PCI DSS payment
-          infrastructure in production on AWS, Huawei Cloud, Kubernetes and Terraform. I also help companies put AI
-          to work, in their operations and in production, without runaway costs. Fixed-price packages, not
-          open-ended hours.
+          Senior DevOps/SRE for startups, SaaS teams and established businesses, on AWS, Google Cloud, Oracle Cloud,
+          Huawei Cloud and multi-cloud setups. By day I run PCI DSS payment infrastructure in production with
+          Kubernetes and Terraform. I also help companies put AI to work without runaway costs. Fixed-price packages,
+          not open-ended hours.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href={mailto('Free 20-minute infra review')}>Book a free 20-min infra review</a>
@@ -278,11 +282,14 @@ const check = 'M4 10.5l4 4 8-9';
 
     <section class="trust" aria-label="Hands-on experience">
       <div class="container">
-        <span class="trust-label">Hands-on in production with</span>
+        <span class="trust-label">Clouds, tools &amp; standards</span>
+        <span class="trust-item">AWS</span>
+        <span class="trust-item">Google Cloud</span>
+        <span class="trust-item">Oracle Cloud</span>
+        <span class="trust-item">Huawei Cloud</span>
+        <span class="trust-item">Multi-cloud</span>
         <span class="trust-item">PCI DSS</span>
         <span class="trust-item">ISO/IEC 27001</span>
-        <span class="trust-item">AWS</span>
-        <span class="trust-item">Huawei Cloud</span>
         <span class="trust-item">Kubernetes</span>
         <span class="trust-item">Terraform</span>
         <span class="trust-item">Ansible</span>
@@ -508,7 +515,8 @@ const check = 'M4 10.5l4 4 8-9';
           production, safely and at a sensible cost.
         </p>
         <p class="about-meta">
-          BSc Computer Science, GC University Lahore · AWS · Huawei Cloud · Kubernetes · Terraform · Ansible
+          BSc Computer Science, GC University Lahore · AWS · Google Cloud · Oracle Cloud · Huawei Cloud · Multi-cloud ·
+          Kubernetes · Terraform · Ansible
         </p>
       </div>
     </section>

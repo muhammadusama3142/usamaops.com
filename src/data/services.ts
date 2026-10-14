@@ -65,7 +65,7 @@ export const services: Service[] = [
       },
       {
         title: 'Review six areas',
-        body: 'Cloud architecture and cost, CI/CD and releases, identity and access, network and data security, monitoring and incident response, and TLS certificates and secrets.',
+        body: 'Cloud architecture and cost (on AWS, Google Cloud, Oracle Cloud, Huawei Cloud or several at once), CI/CD and releases, identity and access, network and data security, monitoring and incident response, and TLS certificates and secrets.',
       },
       {
         title: 'Score every risk',
@@ -86,7 +86,7 @@ export const services: Service[] = [
     proof: {
       kicker: 'Why this works',
       title: 'A checklist built from running regulated production',
-      body: 'I run PCI DSS-scoped payment infrastructure on AWS, Huawei Cloud and Kubernetes. The review covers what audits and incidents in that environment have taught me to check, not a generic template.',
+      body: 'I run PCI DSS-scoped payment infrastructure in production. The review covers what audits and incidents in that environment have taught me to check, not a generic template, and it works the same on any cloud.',
     },
     faqs: [
       {
@@ -99,7 +99,7 @@ export const services: Service[] = [
       },
       {
         q: 'Which clouds and tools do you cover?',
-        a: 'AWS and Huawei Cloud in depth, plus Kubernetes, Docker, Terraform, Ansible and GitHub Actions. If you run something I know less well, I’ll tell you before we start.',
+        a: 'AWS, Google Cloud, Oracle Cloud and Huawei Cloud, including multi-cloud setups, plus Kubernetes, Docker, Terraform, Ansible and GitHub Actions.',
       },
       {
         q: 'Do we have to hire you after the audit?',
@@ -112,15 +112,15 @@ export const services: Service[] = [
     slug: 'cloud-cost-optimization',
     name: 'Cloud Cost Optimization',
     serviceType: 'Cloud cost optimization',
-    title: 'AWS & Cloud Cost Optimization Consultant | UsamaOps',
+    title: 'AWS, GCP & Oracle Cloud Cost Optimization | UsamaOps',
     description:
-      'Freelance AWS and cloud cost optimization: rightsizing, Savings Plans, storage, data transfer and idle resources. Fixed price with a 2× savings guarantee.',
-    eyebrow: 'AWS & cloud cost optimization',
-    h1: 'Cut your AWS and cloud bill without slowing your team down.',
-    lead: 'Most cloud bills carry waste nobody has had time to chase: idle resources, oversized instances, missing commitments and data transfer nobody planned for. Flexera’s 2026 State of the Cloud survey puts wasted cloud spend at 29%. In a fixed-price Cloud Cost Teardown I find that waste and implement the quick wins, not just list them.',
+      'Cloud cost optimization for AWS, Google Cloud, Oracle Cloud and multi-cloud: rightsizing, commitments, storage and idle resources. 2× savings guarantee.',
+    eyebrow: 'Cloud cost optimization · AWS, Google Cloud, Oracle Cloud',
+    h1: 'Cut your cloud bill without slowing your team down.',
+    lead: 'Whether you run on AWS, Google Cloud, Oracle Cloud, Huawei Cloud or a mix of them, most cloud bills carry waste nobody has had time to chase: idle resources, oversized instances, missing commitments and data transfer nobody planned for. Flexera’s 2026 State of the Cloud survey puts wasted cloud spend at 29%. In a fixed-price Cloud Cost Teardown I find that waste and implement the quick wins, not just list them.',
     summary:
       'Rightsizing, commitments, storage, data transfer and idle resources, with quick wins implemented and a 2× savings guarantee.',
-    bestFor: 'Teams spending $3,000 or more a month on AWS or another cloud',
+    bestFor: 'Teams spending $3,000 or more a month on any cloud, or across several',
     timeline: '1–2 weeks',
     price: '$1,200–2,000',
     min: 1200,
@@ -132,7 +132,7 @@ export const services: Service[] = [
       'The bill grows faster than your traffic or revenue',
       'Nobody owns cloud cost, and nobody can explain last month’s spike',
       'Dev and staging run around the clock on production-sized machines',
-      'You pay full on-demand prices with no Savings Plans or reserved capacity',
+      'You pay full on-demand prices with no committed-use discounts or reserved capacity',
       'Data transfer, NAT gateway or log storage charges keep creeping up',
       'AI or GPU workloads arrived and the bill jumped',
     ],
@@ -148,11 +148,11 @@ export const services: Service[] = [
       },
       {
         title: 'Buy smarter',
-        body: 'Savings Plans and reserved capacity sized to your real baseline, newer instance families such as Graviton where they fit, and spot capacity for work that can be interrupted.',
+        body: 'Commitment discounts sized to your real baseline, such as AWS Savings Plans or Google Cloud committed use discounts, cheaper ARM-based machines where they fit, and spot or preemptible capacity for work that can be interrupted.',
       },
       {
         title: 'Fix storage, transfer and logs',
-        body: 'Storage lifecycle rules and cheaper storage classes, gp2 to gp3 volumes, sensible log retention, and the NAT gateway and cross-zone traffic that quietly inflate bills.',
+        body: 'Storage lifecycle rules, cheaper storage classes and disk types, sensible log retention, and the NAT and cross-zone or cross-region traffic that quietly inflate bills.',
       },
     ],
     deliverables: [
@@ -169,7 +169,7 @@ export const services: Service[] = [
     },
     faqs: [
       {
-        q: 'How much can you save on our AWS bill?',
+        q: 'How much can you save on our cloud bill?',
         a: 'It depends on how the account has grown, so I won’t promise a number before looking. For teams spending at least $3,000 a month, I guarantee annualised savings of at least twice my fee, or you don’t pay.',
       },
       {
@@ -177,8 +177,8 @@ export const services: Service[] = [
         a: 'It shouldn’t. I start with waste that has no performance impact, test rightsizing against real usage data, and schedule riskier changes with your team, with a rollback plan.',
       },
       {
-        q: 'Do you work with clouds other than AWS?',
-        a: 'Yes. I work hands-on with AWS and Huawei Cloud, and the same approach (usage data, rightsizing, commitments, storage and transfer) applies to other providers. If yours is one I know less well, I’ll say so up front.',
+        q: 'Which cloud providers do you work with?',
+        a: 'AWS, Google Cloud, Oracle Cloud and Huawei Cloud, and multi-cloud setups that mix them. The approach is the same everywhere: real usage data, rightsizing, commitment discounts, storage and data transfer.',
       },
       {
         q: 'Can you reduce our AI or GPU costs too?',
@@ -196,7 +196,7 @@ export const services: Service[] = [
       'CI/CD pipelines with GitHub Actions, infrastructure as code with Terraform, and Kubernetes set up for safe, repeatable deploys. Fixed price from $3,000.',
     eyebrow: 'CI/CD · Terraform · Kubernetes',
     h1: 'Deploys your team trusts, from commit to production.',
-    lead: 'Manual deploy steps, environments that drift apart and one person who knows how it all works. I set up CI/CD pipelines with GitHub Actions, infrastructure as code with Terraform, and Kubernetes or container deployments, so every release is repeatable, reviewed and easy to roll back.',
+    lead: 'Manual deploy steps, environments that drift apart and one person who knows how it all works. I set up CI/CD pipelines with GitHub Actions, infrastructure as code with Terraform, and Kubernetes or container deployments on AWS, Google Cloud, Oracle Cloud, Huawei Cloud or several at once, so every release is repeatable, reviewed and easy to roll back.',
     summary:
       'GitHub Actions pipelines, Terraform modules, consistent environments, secrets management and rollback your team can trust.',
     bestFor: 'Teams shipping every week or more with manual or fragile deploys',
@@ -216,7 +216,7 @@ export const services: Service[] = [
     approach: [
       {
         title: 'Infrastructure as code',
-        body: 'Terraform modules for networks, compute, databases and IAM, with remote state, locking and a plan-and-apply workflow in pull requests.',
+        body: 'Terraform modules for networks, compute, databases and IAM on any major cloud, or across several, with remote state, locking and a plan-and-apply workflow in pull requests.',
       },
       {
         title: 'CI/CD pipelines',
@@ -247,6 +247,10 @@ export const services: Service[] = [
       {
         q: 'Do we need Kubernetes?',
         a: 'Not always. Kubernetes pays off when you run many services or need fine-grained scaling. For a handful of services, a managed container platform is often simpler and cheaper, and I’ll recommend that when it fits better.',
+      },
+      {
+        q: 'Do you work with multi-cloud setups?',
+        a: 'Yes. Terraform, Kubernetes and GitHub Actions work across AWS, Google Cloud, Oracle Cloud and Huawei Cloud, so one consistent setup can manage infrastructure on several providers at once.',
       },
       {
         q: 'Can you bring hand-built infrastructure under Terraform?',
@@ -425,7 +429,7 @@ export const services: Service[] = [
       'Hire a remote, fractional DevOps and SRE engineer: up to 20–30 hours a month, business-hours support and a monthly report. $1,500–3,000 a month.',
     eyebrow: 'Fractional & remote DevOps engineer',
     h1: 'A senior DevOps engineer on your team, without a full-time hire.',
-    lead: 'Most growing companies need senior DevOps and SRE judgement every week, but not 40 hours of it. Hire me as your fractional DevOps engineer: up to 20–30 hours a month across infrastructure, reliability, security, cost and AI operations, with business-hours support and a monthly report.',
+    lead: 'Most growing companies need senior DevOps and SRE judgement every week, but not 40 hours of it. Hire me as your fractional DevOps engineer: up to 20–30 hours a month across infrastructure, reliability, security, cost and AI operations on AWS, Google Cloud, Oracle Cloud, Huawei Cloud or multi-cloud, with business-hours support and a monthly report.',
     summary:
       'Up to 20–30 hours a month across DevOps, SRE and AI operations, with business-hours support and a monthly report.',
     bestFor: 'Companies without a DevOps engineer, or waiting for one to start',
