@@ -61,16 +61,14 @@ const jsonLd = [
               <span class="card-num">{s.eyebrow}</span>
               <h2 class="card-title">{s.name}</h2>
               <p>{s.summary}</p>
-              <p class="card-meta">
-                {s.price} · {s.timeline}
-              </p>
+              <p class="card-meta">{s.price.includes('/ month') ? s.price : `${s.price} · ${s.timeline}`}</p>
               <span class="card-more">Learn more →</span>
             </a>
           ))
         }
         <a class="card-cta card-cta-wide" href={mailto('Not sure where to start')}>
           <span class="card-num">Not sure where to start?</span>
-          <strong>Email me what's going on, and I'll point you to the right one →</strong>
+          <strong>Email me what’s going on, and I’ll point you to the right one →</strong>
         </a>
       </div>
     </section>
