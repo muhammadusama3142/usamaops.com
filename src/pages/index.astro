@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Contact from '../components/Contact.astro';
-import { site, mailto, whatsapp } from '../site';
+import { site, mailto, whatsapp, book } from '../site';
 import { servicePath } from '../data/services';
 import { homeUrl, personNode, businessNode, faqNode } from '../lib/schema';
 
@@ -163,7 +163,7 @@ const steps = [
 const faqs = [
   {
     q: 'How much does a freelance DevOps consultant cost?',
-    a: 'You get a clear quote before any work starts, so you know the cost up front. The Infrastructure Health Check starts from $500. Projects run $750–8,000 depending on scope, and fractional DevOps/SRE support is $1,000–3,000 a month for 20–30 hours a week.',
+    a: 'You get a clear quote before any work starts, so you know the cost up front. The Infrastructure Health Check starts from $500. Projects run $750–8,000 depending on scope, and fractional DevOps/SRE support starts from $1,000 a month for 20–30 hours a week.',
   },
   {
     q: 'Can you reduce our AWS, Google Cloud or Oracle Cloud bill?',
@@ -207,7 +207,7 @@ const allOffers = [
   { name: 'Infrastructure Health Check', min: 500 },
   ...packages,
   ...aiPackages,
-  { name: 'Fractional DevOps Engineer (monthly)', min: 1000, max: 3000 },
+  { name: 'Fractional DevOps Engineer (monthly)', min: 1000 },
 ];
 
 const jsonLd = [
@@ -247,7 +247,7 @@ const aboutMeta = ['BSc Computer Science, GC University Lahore', 'AWS', 'Google 
           work starts, not open-ended hours.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href={mailto('Free 20-minute infra review')}>Book a free 20-min infra review</a>
+          <a class="btn btn-primary" href={book('Free 20-minute infra review')}>Book a free 20-min infra review</a>
           <a class="btn btn-secondary" href="#services">See the packages →</a>
         </div>
         <p class="hero-note">
@@ -333,7 +333,7 @@ const aboutMeta = ['BSc Computer Science, GC University Lahore', 'AWS', 'Google 
           <p class="featured-time">5 business days</p>
           <p class="featured-price">From $500</p>
           <p class="featured-note">Depends on the size of your setup.</p>
-          <a class="btn btn-primary" href={mailto('Infrastructure Health Check')}>Book the Health Check</a>
+          <a class="btn btn-primary" href={book('Infrastructure Health Check')}>Book the Health Check</a>
           <a class="featured-link" href={servicePath('infrastructure-audit')}>What the audit covers →</a>
         </div>
         <ul class="check-list featured-list">
@@ -377,7 +377,7 @@ const aboutMeta = ['BSc Computer Science, GC University Lahore', 'AWS', 'Google 
           <h3>Fractional DevOps Engineer</h3>
           <span class="package-time">monthly · no minimum term</span>
         </div>
-        <p class="package-price">$1,000–3,000<span> / month</span></p>
+        <p class="package-price">From $1,000<span> / month</span></p>
         <p>20–30 hours a week across DevOps, SRE and AI operations, business-hours support and a monthly report. For teams without a full-time DevOps engineer, or waiting for one to start.</p>
         <a class="package-link" href={servicePath('fractional-devops-engineer')}>See details →</a>
       </div>
@@ -419,7 +419,7 @@ const aboutMeta = ['BSc Computer Science, GC University Lahore', 'AWS', 'Google 
           }
         </ul>
         <div class="levers-actions">
-          <a class="btn btn-primary" href={mailto('AI Opportunity & Cost Review')}>Book the AI Review</a>
+          <a class="btn btn-primary" href={book('AI Opportunity & Cost Review')}>Book the AI Review</a>
           <a class="featured-link" href={servicePath('ai-integration')}>More on AI integration →</a>
         </div>
       </div>

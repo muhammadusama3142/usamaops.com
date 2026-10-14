@@ -9,6 +9,9 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/muhammad-usama-8894b4201/',
   github: 'https://github.com/muhammadusama3142',
   repo: 'https://github.com/muhammadusama3142/usamaops.com',
+  // Cal.com booking page for the free 20-minute call. Empty = buttons fall back to email.
+  // Visitors see slots in their own time zone; bookings land on the Google Calendar.
+  booking: 'https://cal.com/usamaops/free-review',
 };
 
 export function mailto(subject: string): string {
@@ -19,4 +22,13 @@ export function mailto(subject: string): string {
 export function whatsapp(text?: string): string {
   const base = `https://wa.me/${site.phone.replace(/\D/g, '')}`;
   return text ? `${base}?text=${encodeURIComponent(text)}` : base;
+}
+
+// Where every "Book …" button points: the Cal.com page once set, otherwise an email with a subject.
+// Buttons for a specific service pre-fill the "What would you like to discuss?" answer
+// (Cal.com field id `notes`), so each booking says which page it came from. Visitors can edit it.
+export function book(subject: string): string {
+  if (!site.booking) return mailto(subject);
+  if (subject.startsWith('Free 20-minute')) return site.booking;
+  return `${site.booking}?notes=${encodeURIComponent(`I'm interested in ${subject}. `)}`;
 }

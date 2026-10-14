@@ -455,9 +455,8 @@ export const services: Service[] = [
       '20–30 hours a week across DevOps, SRE and AI operations, with business-hours support and a monthly report.',
     bestFor: 'Companies without a DevOps engineer, or waiting for one to start',
     timeline: 'Monthly, no minimum term',
-    price: '$1,000–3,000 / month',
+    price: 'From $1,000 / month',
     min: 1000,
-    max: 3000,
     payment: 'Prices in USD, billed monthly in advance.',
     noun: 'a fractional DevOps engineer',
     signs: [
@@ -505,7 +504,7 @@ export const services: Service[] = [
       },
       {
         q: 'How much does it cost to hire a remote DevOps engineer?',
-        a: 'My fractional retainer is $1,000–3,000 a month for 20–30 hours a week, depending on scope, with no minimum term. Project-based work is also available.',
+        a: 'My fractional retainer starts from $1,000 a month for 20–30 hours a week, depending on scope, with no minimum term. Project-based work is also available.',
       },
       {
         q: 'Can companies outside Pakistan hire you?',

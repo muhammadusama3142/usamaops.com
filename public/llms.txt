@@ -2,7 +2,7 @@
 
 > Muhammad Usama, trading as UsamaOps (usamaops.com), is a freelance Senior DevOps and Site Reliability Engineer based in Lahore, Pakistan (UTC+5), working remotely with startups, SaaS companies and established businesses worldwide. Works across AWS, Google Cloud (GCP), Oracle Cloud (OCI), Huawei Cloud and multi-cloud setups, and runs PCI DSS-scoped payment infrastructure in production with Kubernetes and Terraform. Sells clearly scoped packages, each quoted before work starts, for cloud cost reduction, CI/CD and infrastructure as code, TLS certificate automation, compliance readiness (SOC 2, PCI DSS, ISO 27001, HIPAA, GDPR) and low-cost AI integration.
 
-Contact: hello@usamaops.com or WhatsApp +92 313 4236974 (https://wa.me/923134236974). All prices are in USD. Available for projects or as a remote, fractional DevOps/SRE engineer on a monthly retainer.
+Contact: hello@usamaops.com or WhatsApp +92 313 4236974 (https://wa.me/923134236974). Book a free 20-minute call: https://cal.com/usamaops/free-review (times shown in your own time zone). All prices are in USD. Available for projects or as a remote, fractional DevOps/SRE engineer on a monthly retainer.
 
 ## DevOps & SRE packages
 
@@ -11,7 +11,7 @@ Contact: hello@usamaops.com or WhatsApp +92 313 4236974 (https://wa.me/923134236
 - TLS Certificate Automation: 1–2 weeks, $2,000–4,000. Certificate inventory, ACME/cert-manager renewal, expiry alerts, rotation runbook; ready for 100-day TLS certificates (from March 15, 2027).
 - CI/CD, Terraform & Kubernetes: 2–4 weeks, $3,000–6,000. Terraform, GitHub Actions, environments, secrets and rollback.
 - Compliance Readiness (SOC 2, PCI DSS, ISO 27001, HIPAA, GDPR): 2–4 weeks, $3,000–8,000. Fixes the infrastructure controls auditors check; does not issue audit reports or certifications.
-- Fractional DevOps Engineer: $1,000–3,000 a month for 20–30 hours a week, no minimum term.
+- Fractional DevOps Engineer: from $1,000 a month for 20–30 hours a week, no minimum term.
 
 ## AI integration packages
 
