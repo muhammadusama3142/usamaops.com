@@ -16,7 +16,8 @@ export interface Service {
   price: string;
   priceNote?: string;
   min: number;
-  max: number;
+  max?: number;
+  payment?: string; // payment terms line under the price; defaults to 50/50
   guarantee?: string;
   noun: string; // completes "Signs you need …"
   signs: string[];
@@ -37,18 +38,17 @@ export const services: Service[] = [
     serviceType: 'DevOps and cloud infrastructure audit',
     title: 'DevOps & Cloud Infrastructure Audit | UsamaOps',
     description:
-      'A fixed-price, read-only DevOps and cloud infrastructure audit: cloud, CI/CD, security, monitoring and certificates, with a risk-scored plan. From $750.',
+      'A read-only DevOps and cloud infrastructure audit: cloud, CI/CD, security, monitoring and certificates, with a risk-scored plan. From $500.',
     eyebrow: 'DevOps & cloud infrastructure audit',
     h1: 'Know exactly where your infrastructure stands, in five days.',
-    lead: 'A fixed-price, read-only audit of your cloud, CI/CD, security, monitoring and certificates. You get a risk-scored report, a 30/60/90-day plan with a fixed price for each step, and a walkthrough with your team. It’s the fastest way to find out what to fix first.',
+    lead: 'A read-only audit of your cloud, CI/CD, security, monitoring and certificates. You get a risk-scored report, a 30/60/90-day plan with a quote for each step, and a walkthrough with your team. It’s the fastest way to find out what to fix first.',
     summary:
       'A five-day, read-only review of your cloud, CI/CD, security, monitoring and certificates, with a risk-scored plan.',
     bestFor: 'Teams without a dedicated DevOps engineer, or before a launch, audit or funding round',
     timeline: '5 business days',
-    price: '$750',
-    priceNote: 'Intro price for my first 3 clients, then $1,500. The fee is credited in full if you book implementation.',
-    min: 750,
-    max: 1500,
+    price: 'From $500',
+    priceNote: 'Depends on the size of your setup; you get a clear quote before work starts. The fee is credited in full if you book implementation.',
+    min: 500,
     noun: 'an infrastructure audit',
     signs: [
       'Nobody can say with confidence what is running, who has access to it or what it costs',
@@ -73,14 +73,14 @@ export const services: Service[] = [
       },
       {
         title: 'Plan and walk through it',
-        body: 'A 30/60/90-day plan with a fixed price for each step, presented on a 60-minute call with your team. Do the work yourselves or with me.',
+        body: 'A 30/60/90-day plan with a quote for each step, presented on a 60-minute call with your team. Do the work yourselves or with me.',
       },
     ],
     deliverables: [
       'Written report with every finding, its severity and how to fix it',
       'An overview of the architecture you run today',
       'Quick wins you can apply the same week',
-      '30/60/90-day plan with a fixed price per step',
+      '30/60/90-day plan with a quote for each step',
       '60-minute walkthrough call with your team',
     ],
     proof: {
@@ -95,7 +95,7 @@ export const services: Service[] = [
       },
       {
         q: 'How much does an infrastructure audit cost?',
-        a: 'The Health Check is a fixed $750 for my first three clients and $1,500 after that. If you then book implementation with me, the fee is credited in full.',
+        a: 'The Health Check starts from $500, depending on the size of your setup, and you get a clear quote before work starts. If you then book implementation with me, the fee is credited in full.',
       },
       {
         q: 'Which clouds and tools do you cover?',
@@ -106,7 +106,7 @@ export const services: Service[] = [
         a: 'No. The plan is yours to keep. Many teams fix the quick wins themselves and bring me in only for the bigger items.',
       },
     ],
-    related: ['cloud-cost-optimization', 'soc2-pci-dss-compliance', 'fractional-devops-engineer'],
+    related: ['cloud-cost-optimization', 'compliance-readiness', 'fractional-devops-engineer'],
   },
   {
     slug: 'cloud-cost-optimization',
@@ -117,7 +117,7 @@ export const services: Service[] = [
       'Cloud cost optimization for AWS, Google Cloud, Oracle Cloud and multi-cloud: rightsizing, commitments, storage and idle resources. 2× savings guarantee.',
     eyebrow: 'Cloud cost optimization · AWS, Google Cloud, Oracle Cloud',
     h1: 'Cut your cloud bill without slowing your team down.',
-    lead: 'Whether you run on AWS, Google Cloud, Oracle Cloud, Huawei Cloud or a mix of them, most cloud bills carry waste nobody has had time to chase: idle resources, oversized instances, missing commitments and data transfer nobody planned for. Flexera’s 2026 State of the Cloud survey puts wasted cloud spend at 29%. In a fixed-price Cloud Cost Teardown I find that waste and implement the quick wins, not just list them.',
+    lead: 'Whether you run on AWS, Google Cloud, Oracle Cloud, Huawei Cloud or a mix of them, most cloud bills carry waste nobody has had time to chase: idle resources, oversized instances, missing commitments and data transfer nobody planned for. Flexera’s 2026 State of the Cloud survey puts wasted cloud spend at 29%. In a Cloud Cost Teardown, quoted clearly before work starts, I find that waste and implement the quick wins, not just list them.',
     summary:
       'Rightsizing, commitments, storage, data transfer and idle resources, with quick wins implemented and a 2× savings guarantee.',
     bestFor: 'Teams spending $3,000 or more a month on any cloud, or across several',
@@ -193,7 +193,7 @@ export const services: Service[] = [
     serviceType: 'CI/CD and infrastructure as code',
     title: 'CI/CD, Terraform & Kubernetes Consultant | UsamaOps',
     description:
-      'CI/CD pipelines with GitHub Actions, infrastructure as code with Terraform, and Kubernetes set up for safe, repeatable deploys. Fixed price from $3,000.',
+      'CI/CD pipelines with GitHub Actions, infrastructure as code with Terraform, and Kubernetes set up for safe, repeatable deploys. From $3,000.',
     eyebrow: 'CI/CD · Terraform · Kubernetes',
     h1: 'Deploys your team trusts, from commit to production.',
     lead: 'Manual deploy steps, environments that drift apart and one person who knows how it all works. I set up CI/CD pipelines with GitHub Actions, infrastructure as code with Terraform, and Kubernetes or container deployments on AWS, Google Cloud, Oracle Cloud, Huawei Cloud or several at once, so every release is repeatable, reviewed and easy to roll back.',
@@ -268,18 +268,18 @@ export const services: Service[] = [
     related: ['infrastructure-audit', 'fractional-devops-engineer', 'tls-certificate-automation'],
   },
   {
-    slug: 'soc2-pci-dss-compliance',
-    name: 'SOC 2 & PCI DSS Readiness',
+    slug: 'compliance-readiness',
+    name: 'Compliance Readiness',
     serviceType: 'Compliance infrastructure readiness',
-    title: 'SOC 2 & PCI DSS Infrastructure Readiness | UsamaOps',
+    title: 'Compliance Readiness: SOC 2, PCI DSS & ISO 27001 | UsamaOps',
     description:
-      'I fix the infrastructure controls SOC 2 and PCI DSS auditors check: IAM, MFA, logging, encryption, backups and access reviews. Fixed price from $3,000.',
-    eyebrow: 'SOC 2 & PCI DSS infrastructure readiness',
-    h1: 'Get your infrastructure ready for SOC 2 or PCI DSS.',
-    lead: 'Compliance platforms collect evidence, but someone still has to fix what they flag. I fix the infrastructure controls auditors check (identity and access, MFA, logging, encryption, backups and access reviews), drawing on experience running PCI DSS-scoped payment infrastructure in production.',
+      'Compliance readiness for SOC 2, PCI DSS, ISO 27001, HIPAA and GDPR. I fix the infrastructure controls auditors check: IAM, MFA, logging and backups.',
+    eyebrow: 'SOC 2 · PCI DSS · ISO 27001 · HIPAA · GDPR',
+    h1: 'Get your infrastructure audit-ready for whichever framework your customers ask for.',
+    lead: 'Compliance platforms collect evidence, but someone still has to fix what they flag. Whether it’s SOC 2, PCI DSS, ISO 27001, HIPAA or GDPR, I fix the infrastructure controls auditors check (identity and access, MFA, logging, encryption, backups and access reviews), drawing on experience running PCI DSS-scoped payment infrastructure in production.',
     summary:
-      'I fix the infrastructure controls auditors check: IAM, MFA, logging, encryption, backups and access reviews.',
-    bestFor: 'B2B SaaS chasing enterprise deals, and fintech or payments teams in PCI DSS scope',
+      'SOC 2, PCI DSS, ISO 27001, HIPAA or GDPR: I fix the infrastructure controls auditors check, from IAM and MFA to logging, encryption and backups.',
+    bestFor: 'B2B SaaS chasing enterprise deals, fintech and payments teams, and anyone facing a security audit',
     timeline: '2–4 weeks',
     price: '$3,000–8,000',
     min: 3000,
@@ -288,6 +288,7 @@ export const services: Service[] = [
     signs: [
       'Your compliance platform shows a wall of failing infrastructure checks',
       'An enterprise customer sent a security questionnaire you can’t fully answer',
+      'A customer or partner now asks for SOC 2, ISO 27001, HIPAA or GDPR evidence',
       'Shared accounts, missing MFA, or access nobody has reviewed in months',
       'Logs are missing, kept too briefly or not protected from tampering',
       'You handle card data and aren’t sure what is in PCI DSS scope',
@@ -296,7 +297,7 @@ export const services: Service[] = [
     approach: [
       {
         title: 'Gap review',
-        body: 'I map your infrastructure against the controls your auditor or compliance platform checks, and rank the gaps by risk and effort.',
+        body: 'I map your infrastructure against the controls your framework, auditor or compliance platform checks, and rank the gaps by risk and effort.',
       },
       {
         title: 'Identity and access',
@@ -318,7 +319,7 @@ export const services: Service[] = [
       'Runbooks for access reviews, backups and incident response',
       'A handover so your team keeps the controls passing',
     ],
-    note: 'I don’t issue audit reports or certifications; that’s your auditor’s job. I get your infrastructure ready for them.',
+    note: 'I cover the infrastructure side of each framework. I don’t issue audit reports or certifications; that’s your auditor’s job. Policies and legal obligations, such as GDPR’s, stay with your team and your lawyers.',
     proof: {
       kicker: 'Payments · PCI DSS scope',
       title: 'Regulated infrastructure, run day to day',
@@ -326,8 +327,12 @@ export const services: Service[] = [
     },
     faqs: [
       {
-        q: 'Do you issue SOC 2 reports or PCI DSS certifications?',
-        a: 'No. SOC 2 reports come from licensed CPA firms, and PCI DSS assessments from a Qualified Security Assessor or your own self-assessment questionnaire. I fix the infrastructure side so you’re ready for them.',
+        q: 'Which compliance frameworks do you cover?',
+        a: 'SOC 2, PCI DSS, ISO 27001, HIPAA and GDPR, on the infrastructure side: identity and access, logging, encryption, backups, network security and the evidence auditors ask for. Many controls overlap, so one well-built setup often serves several frameworks.',
+      },
+      {
+        q: 'Do you issue SOC 2 reports or certifications?',
+        a: 'No. SOC 2 reports come from licensed CPA firms, PCI DSS assessments from a Qualified Security Assessor or your own self-assessment questionnaire, and ISO 27001 certificates from an accredited certification body. I get your infrastructure ready for them.',
       },
       {
         q: 'Do you work with compliance platforms?',
@@ -418,7 +423,7 @@ export const services: Service[] = [
         a: 'Yes. Secrets move into a secrets manager with access controls and rotation, instead of living in files, environment variables or chat.',
       },
     ],
-    related: ['soc2-pci-dss-compliance', 'ci-cd-terraform-kubernetes', 'infrastructure-audit'],
+    related: ['compliance-readiness', 'ci-cd-terraform-kubernetes', 'infrastructure-audit'],
   },
   {
     slug: 'fractional-devops-engineer',
@@ -426,17 +431,18 @@ export const services: Service[] = [
     serviceType: 'Fractional DevOps and SRE support',
     title: 'Fractional & Remote DevOps Engineer for Hire | UsamaOps',
     description:
-      'Hire a remote, fractional DevOps and SRE engineer: up to 20–30 hours a month, business-hours support and a monthly report. $1,500–3,000 a month.',
+      'Hire a remote, fractional DevOps and SRE engineer: 20–30 hours a week, business-hours support and a monthly report. From $1,000 a month, no minimum term.',
     eyebrow: 'Fractional & remote DevOps engineer',
     h1: 'A senior DevOps engineer on your team, without a full-time hire.',
-    lead: 'Most growing companies need senior DevOps and SRE judgement every week, but not 40 hours of it. Hire me as your fractional DevOps engineer: up to 20–30 hours a month across infrastructure, reliability, security, cost and AI operations on AWS, Google Cloud, Oracle Cloud, Huawei Cloud or multi-cloud, with business-hours support and a monthly report.',
+    lead: 'Most growing companies need senior DevOps and SRE judgement every week, but not 40 hours of it. Hire me as your fractional DevOps engineer: 20–30 hours a week across infrastructure, reliability, security, cost and AI operations on AWS, Google Cloud, Oracle Cloud, Huawei Cloud or multi-cloud, with business-hours support and a monthly report.',
     summary:
-      'Up to 20–30 hours a month across DevOps, SRE and AI operations, with business-hours support and a monthly report.',
+      '20–30 hours a week across DevOps, SRE and AI operations, with business-hours support and a monthly report.',
     bestFor: 'Companies without a DevOps engineer, or waiting for one to start',
-    timeline: 'Monthly, 3-month minimum',
-    price: '$1,500–3,000 / month',
-    min: 1500,
+    timeline: 'Monthly, no minimum term',
+    price: '$1,000–3,000 / month',
+    min: 1000,
     max: 3000,
+    payment: 'Prices in USD, billed monthly in advance.',
     noun: 'a fractional DevOps engineer',
     signs: [
       'Your developers lose days to infrastructure work they don’t enjoy',
@@ -465,11 +471,11 @@ export const services: Service[] = [
       },
     ],
     deliverables: [
-      'Up to 20–30 hours a month, agreed in advance',
+      '20–30 hours a week, agreed in advance',
       'Business-hours support over email, Slack or WhatsApp',
       'Pull requests and documentation for every change',
       'A monthly report on changes, costs and risks',
-      'Three-month minimum, billed monthly in advance',
+      'Billed monthly in advance, with no minimum term',
     ],
     proof: {
       kicker: 'Time zones',
@@ -483,7 +489,7 @@ export const services: Service[] = [
       },
       {
         q: 'How much does it cost to hire a remote DevOps engineer?',
-        a: 'My fractional retainer is $1,500–3,000 a month for up to 20–30 hours, depending on scope, with a three-month minimum. Fixed-price projects are also available.',
+        a: 'My fractional retainer is $1,000–3,000 a month for 20–30 hours a week, depending on scope, with no minimum term. Project-based work is also available.',
       },
       {
         q: 'Can companies outside Pakistan hire you?',

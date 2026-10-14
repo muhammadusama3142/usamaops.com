@@ -24,6 +24,9 @@ export const knowsAbout = [
   'PCI DSS',
   'SOC 2',
   'ISO/IEC 27001',
+  'HIPAA',
+  'GDPR',
+  'Compliance readiness',
   'TLS certificate automation',
   'AI integration',
   'LLM cost optimization',
@@ -50,7 +53,7 @@ export const personNode = {
   sameAs: [site.linkedin, site.github],
 };
 
-export function businessNode(description: string, offers: { name: string; min: number; max: number }[]) {
+export function businessNode(description: string, offers: { name: string; min: number; max?: number }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
@@ -63,7 +66,7 @@ export function businessNode(description: string, offers: { name: string; min: n
     description,
     address: lahore,
     areaServed: 'Worldwide',
-    priceRange: '$750–$8,000',
+    priceRange: '$500–$8,000',
     knowsAbout,
     founder: { '@id': personId },
     makesOffer: offers.map((o) => ({

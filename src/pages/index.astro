@@ -33,7 +33,7 @@ const problems = [
   },
   {
     title: 'An audit is coming',
-    body: 'SOC 2 or PCI DSS controls your compliance platform keeps flagging: IAM, MFA, logging, encryption, backups.',
+    body: 'SOC 2, PCI DSS, ISO 27001 or HIPAA controls your compliance platform keeps flagging: IAM, MFA, logging, encryption, backups.',
   },
   {
     title: 'Customers find outages first',
@@ -76,13 +76,13 @@ const packages = [
     body: 'Terraform modules, GitHub Actions pipelines, environments, secrets management and rollback your whole team can trust.',
   },
   {
-    name: 'Compliance Infra Readiness',
-    slug: 'soc2-pci-dss-compliance',
+    name: 'Compliance Readiness',
+    slug: 'compliance-readiness',
     time: '2–4 weeks',
     price: '$3,000–8,000',
     min: 3000,
     max: 8000,
-    body: 'SOC 2 or PCI DSS: I fix the infrastructure controls your compliance platform flags, from IAM and MFA to logging, encryption, backups and access reviews.',
+    body: 'SOC 2, PCI DSS, ISO 27001, HIPAA or GDPR: I fix the infrastructure controls your auditor or compliance platform flags, from IAM and MFA to logging, encryption, backups and access reviews.',
   },
 ];
 
@@ -155,7 +155,7 @@ const cases = [
 
 const steps = [
   { name: 'Audit', body: 'Read-only access. I map what you run, what it costs and where it can fail.' },
-  { name: 'Plan', body: 'A prioritised 30/60/90-day plan with a fixed price for each step.' },
+  { name: 'Plan', body: 'A prioritised 30/60/90-day plan with a clear quote for each step before work starts.' },
   { name: 'Implement', body: 'Changes through code review and infrastructure as code, not console clicks.' },
   { name: 'Handover', body: 'Runbooks, diagrams and a walkthrough so your team runs it without me.' },
 ];
@@ -163,7 +163,7 @@ const steps = [
 const faqs = [
   {
     q: 'How much does a freelance DevOps consultant cost?',
-    a: 'My work is fixed-price, so you know the cost before anything starts. The Infrastructure Health Check is $750 for my first three clients, then $1,500. Projects run $1,200–8,000 depending on scope, and fractional DevOps/SRE support is $1,500–3,000 a month.',
+    a: 'You get a clear quote before any work starts, so you know the cost up front. The Infrastructure Health Check starts from $500. Projects run $1,200–8,000 depending on scope, and fractional DevOps/SRE support is $1,000–3,000 a month for 20–30 hours a week.',
   },
   {
     q: 'Can you reduce our AWS, Google Cloud or Oracle Cloud bill?',
@@ -178,8 +178,8 @@ const faqs = [
     a: 'No. I work with startups, SaaS companies and established businesses, from a first deployment pipeline to cost, security and compliance work on systems that have run for years. Most clients have no dedicated DevOps or SRE team, or need senior hands for one project.',
   },
   {
-    q: 'Do you help companies get ready for SOC 2 or PCI DSS?',
-    a: 'Yes. I run PCI DSS-scoped payment infrastructure in production, and I fix the infrastructure controls auditors and compliance platforms check: IAM, MFA, logging, encryption, backups and access reviews. I don’t issue audit reports; I get your infrastructure ready for your auditor.',
+    q: 'Do you help companies get ready for SOC 2, PCI DSS, ISO 27001 or HIPAA?',
+    a: 'Yes. I run PCI DSS-scoped payment infrastructure in production, and I fix the infrastructure controls auditors and compliance platforms check for SOC 2, PCI DSS, ISO 27001, HIPAA and GDPR: IAM, MFA, logging, encryption, backups and access reviews. I don’t issue audit reports; I get your infrastructure ready for your auditor.',
   },
   {
     q: 'How do you keep AI costs low in production?',
@@ -191,7 +191,7 @@ const faqs = [
   },
   {
     q: 'Can I hire you as a remote DevOps engineer?',
-    a: 'Yes. I work remotely from Lahore, Pakistan, on fixed-price projects or a monthly fractional DevOps/SRE retainer, invoiced in USD. You get a senior engineer without the cost of a full-time hire.',
+    a: 'Yes. I work remotely from Lahore, Pakistan, on projects or a monthly fractional DevOps/SRE retainer, invoiced in USD. You get a senior engineer without the cost of a full-time hire.',
   },
   {
     q: 'Which time zones do you work with?',
@@ -204,10 +204,10 @@ const faqs = [
 ];
 
 const allOffers = [
-  { name: 'Infrastructure Health Check', min: 750, max: 1500 },
+  { name: 'Infrastructure Health Check', min: 500 },
   ...packages,
   ...aiPackages,
-  { name: 'Fractional DevOps/SRE (monthly)', min: 1500, max: 3000 },
+  { name: 'Fractional DevOps/SRE (monthly)', min: 1000, max: 3000 },
 ];
 
 const jsonLd = [
@@ -242,8 +242,8 @@ const check = 'M4 10.5l4 4 8-9';
         <p class="hero-lead">
           Senior DevOps/SRE for startups, SaaS teams and established businesses, on AWS, Google Cloud, Oracle Cloud,
           Huawei Cloud and multi-cloud setups. By day I run PCI DSS payment infrastructure in production with
-          Kubernetes and Terraform. I also help companies put AI to work without runaway costs. Fixed-price packages,
-          not open-ended hours.
+          Kubernetes and Terraform. I also help companies put AI to work without runaway costs. A clear quote before
+          work starts, not open-ended hours.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href={mailto('Free 20-minute infra review')}>Book a free 20-min infra review</a>
@@ -319,7 +319,7 @@ const check = 'M4 10.5l4 4 8-9';
 
     <section class="container section" id="services" aria-labelledby="services-title">
       <p class="eyebrow">DevOps &amp; SRE consulting packages</p>
-      <h2 class="section-title" id="services-title">Fixed scope. Fixed price. Clear deliverables.</h2>
+      <h2 class="section-title" id="services-title">Clear scope. Clear deliverables. A clear quote before work starts.</h2>
       <p class="section-lead">
         Every engagement starts read-only. Prices in USD; 50% upfront, 50% on delivery.{' '}
         <a href="/services/">See every service in detail →</a>
@@ -330,8 +330,8 @@ const check = 'M4 10.5l4 4 8-9';
           <span class="badge">Start here</span>
           <h3>Infrastructure Health Check</h3>
           <p class="featured-time">5 business days</p>
-          <p class="featured-price">$750</p>
-          <p class="featured-note">Intro price for the first 3 clients, then $1,500.</p>
+          <p class="featured-price">From $500</p>
+          <p class="featured-note">Depends on the size of your setup; you get a clear quote before work starts.</p>
           <a class="btn btn-primary" href={mailto('Infrastructure Health Check')}>Book the Health Check</a>
           <a class="featured-link" href={servicePath('infrastructure-audit')}>What the audit covers →</a>
         </div>
@@ -375,12 +375,12 @@ const check = 'M4 10.5l4 4 8-9';
         <div>
           <div class="package-head package-head-start">
             <h3>Fractional DevOps/SRE</h3>
-            <span class="package-time">monthly · 3-month minimum</span>
+            <span class="package-time">monthly · no minimum term</span>
           </div>
-          <p>Up to 20–30 hours a month across DevOps, SRE and AI operations, business-hours support and a monthly report. For teams without a full-time DevOps engineer, or waiting for one to start.</p>
+          <p>20–30 hours a week across DevOps, SRE and AI operations, business-hours support and a monthly report. For teams without a full-time DevOps engineer, or waiting for one to start.</p>
           <a class="package-link" href={servicePath('fractional-devops-engineer')}>See details →</a>
         </div>
-        <p class="package-price">$1,500–3,000<span> / month</span></p>
+        <p class="package-price">$1,000–3,000<span> / month</span></p>
       </div>
     </section>
 
