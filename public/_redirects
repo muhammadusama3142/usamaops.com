@@ -1,0 +1,3 @@
+# Old service URL (renamed on 2026-10-14) → new one
+/services/soc2-pci-dss-compliance /services/compliance-readiness/ 301
+/services/soc2-pci-dss-compliance/ /services/compliance-readiness/ 301
