@@ -427,6 +427,13 @@ p {
 .card-cta .card-num {
   display: block;
 }
+.card-cta-wide {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
 .card-cta strong {
   font-size: 20px;
   letter-spacing: -0.01em;
@@ -578,6 +585,51 @@ p {
 }
 .package-wide p:not(.package-price) {
   margin-top: 10px;
+}
+
+/* ---------- AI section ---------- */
+.levers {
+  margin-top: 16px;
+  background: var(--accent-tint);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+}
+.levers h3 {
+  font-size: 21px;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+.levers .btn {
+  margin-top: 24px;
+  font-size: 15px;
+  padding: 14px 20px;
+}
+
+/* ---------- FAQ ---------- */
+.faq {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+  gap: 0 48px;
+  border-top: 1px solid var(--border);
+}
+.faq-item {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+.faq-item h3 {
+  font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+.faq-item p {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-3);
 }
 
 /* ---------- Case studies ---------- */
