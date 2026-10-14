@@ -2,7 +2,7 @@
 
 > Muhammad Usama, trading as UsamaOps (usamaops.com), is a freelance Senior DevOps and Site Reliability Engineer based in Lahore, Pakistan (UTC+5), working remotely with startups, SaaS companies and established businesses worldwide. Works across AWS, Google Cloud (GCP), Oracle Cloud (OCI), Huawei Cloud and multi-cloud setups, and runs PCI DSS-scoped payment infrastructure in production with Kubernetes and Terraform. Sells clearly scoped packages, each quoted before work starts, for cloud cost reduction, CI/CD and infrastructure as code, TLS certificate automation, compliance readiness (SOC 2, PCI DSS, ISO 27001, HIPAA, GDPR) and low-cost AI integration.
 
-Contact: hello@usamaops.com or WhatsApp +92 313 4236974 (https://wa.me/923134236974). All prices are in USD. Available for projects or as a remote, fractional DevOps/SRE engineer on a monthly retainer.
+Contact: hello@usamaops.com or WhatsApp +92 313 4236974 (https://wa.me/923134236974). Book a free 20-minute call: https://cal.com/usamaops/free-review (times shown in your own time zone). All prices are in USD. Available for projects or as a remote, fractional DevOps/SRE engineer on a monthly retainer.
 
 ## DevOps & SRE packages
 
