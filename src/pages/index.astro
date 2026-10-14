@@ -121,7 +121,42 @@ const aiCostLevers = [
   'Your data stays yours: no-retention API settings, PII redaction and audit logs',
 ];
 
-const cases = [
+const cases: { kicker: string; title: string; problem: string; did: string; result?: string; tags: string[] }[] = [
+  {
+    kicker: 'Payments · cloud cost',
+    title: 'Cloud bill cut from over $15,000 to about $4,000 a month',
+    problem: 'Cloud spend for a payments platform had grown past $15,000 a month.',
+    did: 'Went through the bill service by service and cut the spend the platform didn’t need.',
+    result: 'About $4,000 a month: more than 70% lower, over $130,000 a year saved.',
+    tags: ['Cloud cost', 'FinOps'],
+  },
+  {
+    kicker: 'Payments · PCI DSS',
+    title: 'Locking down a payments platform for PCI DSS',
+    problem:
+      'PCI DSS work started from almost nothing: few security controls were in place, and some firewall rules were open to the whole internet (0.0.0.0/0).',
+    did: 'Put the PCI DSS security controls in place, closed every rule open to the internet, and moved server and admin access behind a VPN.',
+    result: 'No admin or server access from the public internet; every way in now goes through the VPN.',
+    tags: ['PCI DSS', 'Firewall rules', 'VPN'],
+  },
+  {
+    kicker: 'Payments · no handover',
+    title: 'Recovering undocumented infrastructure after the DevOps engineer left',
+    problem:
+      'The previous DevOps engineer was gone. Nobody knew what was running, on which server or how, and the keys to some servers were missing.',
+    did: 'Recovered access to every server, traced what ran where and how, and documented all of it.',
+    result: 'Every server accessible again, and the whole setup written down for the team.',
+    tags: ['Access recovery', 'Inventory', 'Documentation'],
+  },
+  {
+    kicker: 'Payments · disaster recovery',
+    title: 'Rebuilding deleted production servers on Kubernetes',
+    problem:
+      'Production servers were deleted by mistake, and the developer who built the application had already left.',
+    did: 'Took the application code and brought it back up on Kubernetes, without the original developer.',
+    result: 'Production running again, now on Kubernetes.',
+    tags: ['Kubernetes', 'Disaster recovery'],
+  },
   {
     kicker: 'Payments · PCI DSS scope',
     title: 'Emergency mTLS certificate rotation across ~30 microservices',
@@ -129,20 +164,6 @@ const cases = [
       'A critical mTLS certificate expiry hit ~30 services at once, plus the wildcard certificate on the load balancer.',
     did: 'Rotated certificates across every affected service and the load balancer, and brought service-to-service traffic back up.',
     tags: ['mTLS', 'Kubernetes', 'Load balancer'],
-  },
-  {
-    kicker: 'Payments · private network',
-    title: 'CI/CD into private production with zero inbound access',
-    problem: 'Production servers sit on private IPs, so push-based deploys meant opening the network.',
-    did: 'Built pull-based GitHub Actions deploys: artifacts land in object storage, a serverless function triggers an on-host agent that pulls and deploys.',
-    tags: ['GitHub Actions', 'Huawei Cloud', 'Serverless trigger'],
-  },
-  {
-    kicker: 'Payments · card issuing',
-    title: 'Encrypted card-file pipeline with a card-production bureau',
-    problem: 'Card embossing files had to reach an external bureau with nothing exposed in transit.',
-    did: "SFTP with PGP encryption to the bureau’s RSA key, plus IP allowlisting through the NAT gateway.",
-    tags: ['SFTP', 'PGP', 'NAT allowlisting'],
   },
   {
     kicker: 'Payments · AI-assisted build',
@@ -167,7 +188,7 @@ const faqs = [
   },
   {
     q: 'Can you reduce our AWS, Google Cloud or Oracle Cloud bill?',
-    a: 'Yes. My cloud cost optimization work reviews usage, rightsizing, commitments, storage and egress on any of the major clouds, then implements the quick wins. For teams spending $3,000 or more a month on cloud, I guarantee at least twice the fee in annualised savings or you pay nothing.',
+    a: 'Yes. My cloud cost optimization work reviews usage, rightsizing, commitments, storage and egress on any of the major clouds, then implements the quick wins. On one payments platform I took the bill from over $15,000 to about $4,000 a month. For teams spending $3,000 or more a month on cloud, I guarantee at least twice the fee in annualised savings or you pay nothing.',
   },
   {
     q: 'Which cloud providers do you work with?',
@@ -440,6 +461,12 @@ const aboutMeta = ['BSc Computer Science, GC University Lahore', 'AWS', 'Google 
                 <dd>{c.problem}</dd>
                 <dt>What I did</dt>
                 <dd>{c.did}</dd>
+                {c.result && (
+                  <>
+                    <dt>Result</dt>
+                    <dd class="case-result">{c.result}</dd>
+                  </>
+                )}
               </dl>
               <div class="tags">
                 {c.tags.map((t) => <span class="tag">{t}</span>)}

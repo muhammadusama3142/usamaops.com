@@ -674,6 +674,9 @@ p {
   margin: 0;
   color: var(--ink);
 }
+.case dd.case-result {
+  font-weight: 600;
+}
 .tags {
   display: flex;
   flex-wrap: wrap;
