@@ -27,6 +27,10 @@ export interface Service {
   packages?: { name: string; time: string; price: string; body: string }[];
   note?: string;
   proof?: { kicker: string; title: string; body: string };
+  proofHeading?: string; // section heading when the proof is a method, not a production story
+  getTitle?: string; // 'What you get' heading override
+  contactHeading: string;
+  contactText: string;
   faqs: { q: string; a: string }[];
   related: string[];
 }
@@ -47,7 +51,7 @@ export const services: Service[] = [
     bestFor: 'Teams without a dedicated DevOps engineer, or before a launch, audit or funding round',
     timeline: '5 business days',
     price: 'From $500',
-    priceNote: 'Depends on the size of your setup; you get a clear quote before work starts. The fee is credited in full if you book implementation.',
+    priceNote: 'Depends on the size of your setup. The fee is credited in full if you book implementation.',
     min: 500,
     noun: 'an infrastructure audit',
     signs: [
@@ -107,6 +111,9 @@ export const services: Service[] = [
       },
     ],
     related: ['cloud-cost-optimization', 'compliance-readiness', 'fractional-devops-engineer'],
+    proofHeading: 'Why it works.',
+    contactHeading: 'Book your Infrastructure Health Check.',
+    contactText: 'Tell me what you run and what worries you most. I’ll reply with the scope and a quote for the Health Check.',
   },
   {
     slug: 'cloud-cost-optimization',
@@ -117,7 +124,7 @@ export const services: Service[] = [
       'Cloud cost optimization for AWS, Google Cloud, Oracle Cloud and multi-cloud: rightsizing, commitments, storage and idle resources. 2× savings guarantee.',
     eyebrow: 'Cloud cost optimization · AWS, Google Cloud, Oracle Cloud',
     h1: 'Cut your cloud bill without slowing your team down.',
-    lead: 'Whether you run on AWS, Google Cloud, Oracle Cloud, Huawei Cloud or a mix of them, most cloud bills carry waste nobody has had time to chase: idle resources, oversized instances, missing commitments and data transfer nobody planned for. Flexera’s 2026 State of the Cloud survey puts wasted cloud spend at 29%. In a Cloud Cost Teardown, quoted clearly before work starts, I find that waste and implement the quick wins, not just list them.',
+    lead: 'Whether you run on AWS, Google Cloud, Oracle Cloud, Huawei Cloud or a mix of them, most cloud bills carry waste nobody has had time to chase: idle resources, oversized instances, missing commitments and data transfer nobody planned for. Flexera’s 2026 State of the Cloud survey puts wasted cloud spend at 29%. In one to two weeks I find that waste and implement the quick wins, not just list them.',
     summary:
       'Rightsizing, commitments, storage, data transfer and idle resources, with quick wins implemented and a 2× savings guarantee.',
     bestFor: 'Teams spending $3,000 or more a month on any cloud, or across several',
@@ -182,10 +189,13 @@ export const services: Service[] = [
       },
       {
         q: 'Can you reduce our AI or GPU costs too?',
-        a: 'Yes. Model choice, caching, batching and spend limits often cut AI bills sharply. That work is covered under AI integration and LLM cost control.',
+        a: 'Yes. Model choice, caching, batching and spend limits often cut AI bills sharply. That work is covered on the AI integration page.',
       },
     ],
     related: ['infrastructure-audit', 'ai-integration', 'fractional-devops-engineer'],
+    proofHeading: 'Why it’s safe.',
+    contactHeading: 'Let’s cut your cloud bill.',
+    contactText: 'Send me a rough idea of your monthly cloud spend and which providers you use. I’ll tell you where I’d look first.',
   },
   {
     slug: 'ci-cd-terraform-kubernetes',
@@ -258,7 +268,7 @@ export const services: Service[] = [
       },
       {
         q: 'Which CI/CD tools do you use?',
-        a: 'Mostly GitHub Actions, which is what I run in production. If you’re on another CI system, I’ll tell you up front how well I know it, or keep it if it already does the job.',
+        a: 'Mostly GitHub Actions, which is what I run in production. If you’re on another CI system that already does the job, I’ll keep it, and tell you up front how well I know it.',
       },
       {
         q: 'Will my team be able to maintain it?',
@@ -266,6 +276,8 @@ export const services: Service[] = [
       },
     ],
     related: ['infrastructure-audit', 'fractional-devops-engineer', 'tls-certificate-automation'],
+    contactHeading: 'Let’s make your deploys boring.',
+    contactText: 'Tell me how you deploy today and what keeps going wrong. I’ll suggest the smallest setup that fixes it.',
   },
   {
     slug: 'compliance-readiness',
@@ -336,7 +348,7 @@ export const services: Service[] = [
       },
       {
         q: 'Do you work with compliance platforms?',
-        a: 'The fix is the same whichever platform flags it. Tools such as Vanta, Drata or Secureframe list failing infrastructure tests; I work through that list and fix the underlying setup.',
+        a: 'Yes. The fix is the same whichever platform flags it. Tools such as Vanta, Drata or Secureframe list failing infrastructure tests; I work through that list and fix the underlying setup.',
       },
       {
         q: 'How long does SOC 2 readiness take?',
@@ -348,6 +360,8 @@ export const services: Service[] = [
       },
     ],
     related: ['infrastructure-audit', 'tls-certificate-automation', 'ci-cd-terraform-kubernetes'],
+    contactHeading: 'Let’s get you audit-ready.',
+    contactText: 'Tell me which framework you’re working towards and your deadline. I’ll tell you what the infrastructure side involves.',
   },
   {
     slug: 'tls-certificate-automation',
@@ -424,6 +438,8 @@ export const services: Service[] = [
       },
     ],
     related: ['compliance-readiness', 'ci-cd-terraform-kubernetes', 'infrastructure-audit'],
+    contactHeading: 'Let’s automate your certificates.',
+    contactText: 'Tell me roughly how many domains and services you run, and how certificates are renewed today.',
   },
   {
     slug: 'fractional-devops-engineer',
@@ -501,6 +517,10 @@ export const services: Service[] = [
       },
     ],
     related: ['infrastructure-audit', 'ci-cd-terraform-kubernetes', 'cloud-cost-optimization'],
+    proofHeading: 'Why it works.',
+    getTitle: 'What you get each month.',
+    contactHeading: 'Add a senior DevOps engineer to your team.',
+    contactText: 'Tell me about your team, your stack and what’s on your plate this quarter. We’ll see whether a monthly retainer fits.',
   },
   {
     slug: 'ai-integration',
@@ -591,6 +611,8 @@ export const services: Service[] = [
       },
     ],
     related: ['cloud-cost-optimization', 'fractional-devops-engineer', 'infrastructure-audit'],
+    contactHeading: 'Let’s put AI to work in your business.',
+    contactText: 'Tell me which tasks eat your team’s time, or which AI feature you want to ship. I’ll tell you what it would take and roughly what it would cost to run.',
   },
 ];
 

@@ -67,10 +67,10 @@ const jsonLd = [
         <p class="hero-lead">{s.lead}</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href={mailto(s.name)}>Email me about this</a>
-          <a class="btn btn-secondary" href={whatsapp(`Hi Usama, I found you on usamaops.com and I'm interested in ${s.name}.`)}>Message on WhatsApp</a>
+          <a class="btn btn-secondary" href={whatsapp(`Hi Usama, I found you on usamaops.com and I’m interested in ${s.name}.`)}>Message on WhatsApp</a>
         </div>
       </div>
-      <aside class="facts" aria-label="At a glance">
+      <section class="facts" aria-label="At a glance">
         <dl>
           <dt>Timeline</dt>
           <dd>{s.timeline}</dd>
@@ -81,7 +81,7 @@ const jsonLd = [
           <dt>Starts with</dt>
           <dd>An NDA and read-only access</dd>
         </dl>
-      </aside>
+      </section>
     </section>
 
     <section class="container section section-tight" aria-labelledby="signs-title">
@@ -110,7 +110,7 @@ const jsonLd = [
 
     <section class="container section" aria-labelledby="get-title">
       <p class="eyebrow">What you get</p>
-      <h2 class="section-title" id="get-title">{s.packages ? 'Three ways to start.' : 'Clear scope, and a clear quote before work starts.'}</h2>
+      <h2 class="section-title" id="get-title">{s.getTitle ?? (s.packages ? 'Three ways to start.' : 'Clear scope, and a clear quote before work starts.')}</h2>
       {
         s.packages ? (
           <div class="grid grid-3">
@@ -151,8 +151,8 @@ const jsonLd = [
     {
       s.proof && (
         <section class="container section" aria-labelledby="proof-title">
-          <p class="eyebrow">Proof</p>
-          <h2 class="section-title" id="proof-title">From real production work.</h2>
+          <p class="eyebrow">{s.proofHeading ? 'Why me' : 'Proof'}</p>
+          <h2 class="section-title" id="proof-title">{s.proofHeading ?? 'From real production work.'}</h2>
           <article class="case case-single">
             <span class="case-kicker">{s.proof.kicker}</span>
             <h3>{s.proof.title}</h3>
@@ -185,9 +185,9 @@ const jsonLd = [
         {
           related.map((r) => (
             <a class="card card-link" href={servicePath(r.slug)}>
-              <span class="card-num">{r.price}</span>
               <h3>{r.name}</h3>
               <p>{r.summary}</p>
+              <p class="card-meta">{r.price.includes('/ month') ? r.price : `${r.price} · ${r.timeline}`}</p>
               <span class="card-more">Learn more →</span>
             </a>
           ))
@@ -196,6 +196,6 @@ const jsonLd = [
     </section>
   </main>
 
-  <Contact heading={`Talk to me about ${s.name}.`} subject={s.name} />
+  <Contact heading={s.contactHeading} text={s.contactText} subject={s.name} />
   <Footer />
 </Base>
