@@ -9,9 +9,9 @@ const commitUrl = sha ? `${site.repo}/commit/${sha}` : site.repo;
 const builtAt = new Date();
 const builtLabel = `${builtAt.toISOString().slice(0, 10)} ${builtAt.toISOString().slice(11, 16)} UTC`;
 
-const title = 'DevOps, SRE & AI Consultant for Startups — Muhammad Usama';
+const title = 'Muhammad Usama — Freelance DevOps, SRE & AI Consultant';
 const description =
-  'Freelance DevOps & SRE consultant running PCI DSS payment infrastructure. Fixed-price cloud cost cuts, CI/CD, SOC 2 readiness and low-cost AI integration.';
+  'Muhammad Usama (UsamaOps): freelance DevOps & SRE consultant for startups and established businesses. Cloud cost cuts, CI/CD, SOC 2 and AI integration.';
 
 const problems = [
   {
@@ -161,7 +161,11 @@ const faqs = [
     a: 'Yes. The Cloud Cost Teardown reviews usage, rightsizing, commitments, storage and egress, then implements the quick wins. For teams spending $3,000 or more a month on cloud, I guarantee at least twice the fee in annualised savings or you pay nothing.',
   },
   {
-    q: 'Do you help startups get ready for SOC 2 or PCI DSS?',
+    q: 'Do you only work with startups?',
+    a: 'No. I work with startups, SaaS companies and established businesses, from a first deployment pipeline to cost, security and compliance work on systems that have run for years. Most clients have no dedicated DevOps or SRE team, or need senior hands for one project.',
+  },
+  {
+    q: 'Do you help companies get ready for SOC 2 or PCI DSS?',
     a: 'Yes. I run PCI DSS-scoped payment infrastructure in production, and I fix the infrastructure controls auditors and compliance platforms check: IAM, MFA, logging, encryption, backups and access reviews. I don’t issue audit reports; I get your infrastructure ready for your auditor.',
   },
   {
@@ -171,6 +175,10 @@ const faqs = [
   {
     q: 'Can you integrate AI into our existing product or business workflows?',
     a: 'Yes. I can automate a single workflow, such as support triage or document processing, or ship LLM features into your product behind your existing authentication, logging and monitoring, with privacy controls and cost dashboards from day one.',
+  },
+  {
+    q: 'Can I hire you as a remote DevOps engineer?',
+    a: 'Yes. I work remotely from Lahore, Pakistan, on fixed-price projects or a monthly fractional DevOps/SRE retainer, invoiced in USD. You get a senior engineer without the cost of a full-time hire.',
   },
   {
     q: 'Which time zones do you work with?',
@@ -189,37 +197,70 @@ const allOffers = [
   { name: 'Fractional DevOps/SRE (monthly)', min: 1500, max: 3000 },
 ];
 
+const homeUrl = `${site.url}/`;
+const personId = `${homeUrl}#person`;
+const knowsAbout = [
+  'DevOps',
+  'Site reliability engineering',
+  'Cloud infrastructure',
+  'Cloud cost optimization',
+  'AWS',
+  'Huawei Cloud',
+  'Kubernetes',
+  'Terraform',
+  'Ansible',
+  'CI/CD',
+  'GitHub Actions',
+  'PCI DSS',
+  'SOC 2',
+  'ISO/IEC 27001',
+  'TLS certificate automation',
+  'AI integration',
+  'LLM cost optimization',
+  'Workflow automation',
+];
+const lahore = { '@type': 'PostalAddress', addressLocality: 'Lahore', addressCountry: 'PK' };
+
 const jsonLd = [
   {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    name: 'Muhammad Usama — DevOps, SRE & AI Integration',
-    url: site.url,
+    '@type': 'WebSite',
+    '@id': `${homeUrl}#website`,
+    url: homeUrl,
+    name: site.brand,
+    alternateName: [site.name, 'usamaops.com'],
+    inLanguage: 'en',
+    publisher: { '@id': personId },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': personId,
+    name: site.name,
+    alternateName: [site.brand, 'Usama'],
+    url: homeUrl,
     email: site.email,
+    jobTitle: 'Senior DevOps & Site Reliability Engineer',
+    description: 'Freelance DevOps, SRE and AI integration consultant based in Lahore, Pakistan, working remotely with clients worldwide.',
+    address: lahore,
+    alumniOf: { '@type': 'CollegeOrUniversity', name: 'Government College University Lahore' },
+    knowsAbout,
+    sameAs: [site.linkedin, site.github],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': `${homeUrl}#service`,
+    name: `${site.brand} — ${site.name}`,
+    url: homeUrl,
+    email: site.email,
+    image: `${site.url}/og.png`,
     description,
+    address: lahore,
     areaServed: 'Worldwide',
-    knowsAbout: [
-      'DevOps',
-      'Site reliability engineering',
-      'Cloud cost optimization',
-      'AWS',
-      'Kubernetes',
-      'Terraform',
-      'CI/CD',
-      'PCI DSS',
-      'SOC 2',
-      'TLS certificate automation',
-      'AI integration',
-      'LLM cost optimization',
-      'Workflow automation',
-    ],
-    founder: {
-      '@type': 'Person',
-      name: site.name,
-      jobTitle: 'Senior DevOps & Site Reliability Engineer',
-      address: { '@type': 'PostalAddress', addressLocality: 'Lahore', addressCountry: 'PK' },
-      sameAs: [site.linkedin, site.github],
-    },
+    priceRange: '$750–$8,000',
+    knowsAbout,
+    founder: { '@id': personId },
     makesOffer: allOffers.map((o) => ({
       '@type': 'Offer',
       name: o.name,
@@ -268,18 +309,19 @@ const check = 'M4 10.5l4 4 8-9';
   <main id="main">
     <section class="container hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow">DevOps, SRE &amp; AI integration for startups · Remote from Lahore (UTC+5)</p>
-        <h1 id="hero-title">I make startup infrastructure secure, compliant and cheaper to run.</h1>
+        <p class="eyebrow">Freelance DevOps, SRE &amp; AI consultant · Remote from Lahore, Pakistan</p>
+        <h1 id="hero-title">I make your cloud infrastructure secure, compliant and cheaper to run.</h1>
         <p class="hero-lead">
-          Senior DevOps/SRE. By day I run PCI DSS payment infrastructure in production on AWS, Huawei Cloud,
-          Kubernetes and Terraform. I also help businesses put AI to work, in their operations and in production,
-          without runaway costs. Fixed-price packages, not open-ended hours.
+          Senior DevOps/SRE for startups, SaaS teams and established businesses. By day I run PCI DSS payment
+          infrastructure in production on AWS, Huawei Cloud, Kubernetes and Terraform. I also help companies put AI
+          to work, in their operations and in production, without runaway costs. Fixed-price packages, not
+          open-ended hours.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href={mailto('Free 20-minute infra review')}>Book a free 20-min infra review</a>
           <a class="btn btn-secondary" href="#services">See the packages →</a>
         </div>
-        <p class="hero-note">Overlaps US East Coast mornings and the full Gulf working day.</p>
+        <p class="hero-note">Works across US East Coast, UK, European and Gulf business hours.</p>
       </div>
 
       <aside class="infra-panel" aria-label="How this site is built and deployed">
@@ -342,7 +384,7 @@ const check = 'M4 10.5l4 4 8-9';
     </section>
 
     <section class="container section" id="services" aria-labelledby="services-title">
-      <p class="eyebrow">DevOps &amp; SRE packages</p>
+      <p class="eyebrow">DevOps &amp; SRE consulting packages</p>
       <h2 class="section-title" id="services-title">Fixed scope. Fixed price. Clear deliverables.</h2>
       <p class="section-lead">Every engagement starts read-only. Prices in USD; 50% upfront, 50% on delivery.</p>
 
@@ -396,7 +438,7 @@ const check = 'M4 10.5l4 4 8-9';
             <h3>Fractional DevOps/SRE</h3>
             <span class="package-time">monthly · 3-month minimum</span>
           </div>
-          <p>Up to 20–30 hours a month across DevOps, SRE and AI operations, business-hours support and a monthly report. Ideal until your first DevOps hire starts.</p>
+          <p>Up to 20–30 hours a month across DevOps, SRE and AI operations, business-hours support and a monthly report. For teams without a full-time DevOps engineer, or waiting for one to start.</p>
         </div>
         <p class="package-price">$1,500–3,000<span> / month</span></p>
       </div>
@@ -502,7 +544,7 @@ const check = 'M4 10.5l4 4 8-9';
 
     <section class="container section" id="faq" aria-labelledby="faq-title">
       <p class="eyebrow">FAQ</p>
-      <h2 class="section-title" id="faq-title">Questions founders ask before we start.</h2>
+      <h2 class="section-title" id="faq-title">Questions clients ask before we start.</h2>
       <div class="faq">
         {
           faqs.map((f) => (
@@ -521,8 +563,8 @@ const check = 'M4 10.5l4 4 8-9';
         <h2 class="section-title" id="about-title">Hi, I'm Usama.</h2>
         <p class="about-text">
           I'm a Senior DevOps Engineer in Lahore with 4+ years running production infrastructure, today for a
-          payments company where PCI DSS isn't optional. I take on a small number of startup projects alongside
-          that work, so each one gets senior attention.
+          payments company where PCI DSS isn't optional. Alongside that I work with a small number of startups and
+          established businesses, so each project gets senior attention.
         </p>
         <p class="about-text">
           My favourite problems are the unglamorous ones: certificates, keys, access and audits, plus the cloud
@@ -558,7 +600,7 @@ const check = 'M4 10.5l4 4 8-9';
 
   <footer class="site-footer">
     <div class="container">
-      <span>© {builtAt.getUTCFullYear()} Muhammad Usama</span>
+      <span>© {builtAt.getUTCFullYear()} Muhammad Usama · {site.brand}</span>
       <span class="mono">Built with Astro · hosted on Cloudflare Pages · <a href={site.repo}>source</a></span>
     </div>
   </footer>

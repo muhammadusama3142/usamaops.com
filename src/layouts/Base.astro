@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { site } from '../site';
 
 interface Props {
   title: string;
@@ -18,21 +19,25 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={site.name} />
     <link rel="canonical" href={canonical} />
+    <link rel="me" href={site.linkedin} />
+    <link rel="me" href={site.github} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="theme-color" content="#f5f6f3" />
     {noindex && <meta name="robots" content="noindex" />}
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Muhammad Usama" />
+    <meta property="og:site_name" content={site.brand} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL('/og.png', Astro.site)} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Muhammad Usama — DevOps, SRE and AI integration for startups" />
+    <meta property="og:image:alt" content="Muhammad Usama (UsamaOps): freelance DevOps, SRE and AI integration consultant" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={new URL('/og.png', Astro.site)} />
     <meta name="twitter:title" content={title} />

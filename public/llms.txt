@@ -1,8 +1,8 @@
-# Muhammad Usama — DevOps, SRE & AI Integration
+# Muhammad Usama (UsamaOps) — DevOps, SRE & AI Integration
 
-> Freelance Senior DevOps and Site Reliability Engineer based in Lahore, Pakistan (UTC+5), working remotely with startups worldwide. Runs PCI DSS-scoped payment infrastructure in production on AWS, Huawei Cloud, Kubernetes and Terraform. Sells fixed-price packages for cloud cost reduction, CI/CD and infrastructure as code, TLS certificate automation, SOC 2 / PCI DSS infrastructure readiness, and low-cost AI integration.
+> Muhammad Usama, trading as UsamaOps (usamaops.com), is a freelance Senior DevOps and Site Reliability Engineer based in Lahore, Pakistan (UTC+5), working remotely with startups, SaaS companies and established businesses worldwide. Runs PCI DSS-scoped payment infrastructure in production on AWS, Huawei Cloud, Kubernetes and Terraform. Sells fixed-price packages for cloud cost reduction, CI/CD and infrastructure as code, TLS certificate automation, SOC 2 / PCI DSS infrastructure readiness, and low-cost AI integration.
 
-Contact: hello@usamaops.com. All prices are in USD.
+Contact: hello@usamaops.com. All prices are in USD. Available for fixed-price projects or as a remote, fractional DevOps/SRE engineer on a monthly retainer.
 
 ## DevOps & SRE packages
 
