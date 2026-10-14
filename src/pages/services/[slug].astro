@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import Contact from '../../components/Contact.astro';
 import CheckList from '../../components/CheckList.astro';
 import { services, getService, servicePath, type Service } from '../../data/services';
-import { site, mailto, whatsapp } from '../../site';
+import { site, mailto, whatsapp, book } from '../../site';
 import { personNode, personId, homeUrl, faqNode, breadcrumbNode } from '../../lib/schema';
 
 export function getStaticPaths() {
@@ -66,7 +66,7 @@ const jsonLd = [
         <h1 id="page-title">{s.h1}</h1>
         <p class="hero-lead">{s.lead}</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href={mailto(s.name)}>Email me about this</a>
+          <a class="btn btn-primary" href={book(s.name)}>Book a free 20-minute call</a>
           <a class="btn btn-secondary" href={whatsapp(`Hi Usama, I found you on usamaops.com and I’m interested in ${s.name}.`)}>Message on WhatsApp</a>
         </div>
       </div>
@@ -140,7 +140,7 @@ const jsonLd = [
               {s.priceNote && <p>{s.priceNote}</p>}
               {s.guarantee && <p class="package-guarantee">{s.guarantee}</p>}
               <p>{s.payment ?? 'Prices in USD. 50% upfront, 50% on delivery.'}</p>
-              <a class="btn btn-primary" href={mailto(s.name)}>Book a free 20-minute call</a>
+              <a class="btn btn-primary" href={book(s.name)}>Book a free 20-minute call</a>
             </div>
           </div>
         )

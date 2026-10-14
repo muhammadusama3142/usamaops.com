@@ -9,6 +9,8 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/muhammad-usama-8894b4201/',
   github: 'https://github.com/muhammadusama3142',
   repo: 'https://github.com/muhammadusama3142/usamaops.com',
+  // Cal.com booking page for the free 20-minute call. Empty = buttons fall back to email.
+  booking: '',
 };
 
 export function mailto(subject: string): string {
@@ -19,4 +21,9 @@ export function mailto(subject: string): string {
 export function whatsapp(text?: string): string {
   const base = `https://wa.me/${site.phone.replace(/\D/g, '')}`;
   return text ? `${base}?text=${encodeURIComponent(text)}` : base;
+}
+
+// Where every "Book …" button points: the Cal.com page once set, otherwise an email with a subject.
+export function book(subject: string): string {
+  return site.booking || mailto(subject);
 }

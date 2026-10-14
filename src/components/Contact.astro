@@ -1,5 +1,5 @@
 ---
-import { site, mailto, whatsapp } from '../site';
+import { site, mailto, whatsapp, book } from '../site';
 
 interface Props {
   heading?: string;
@@ -22,8 +22,9 @@ const {
     </div>
     <div class="contact-actions">
       <div class="contact-buttons">
-        <a class="btn btn-light" href={mailto(subject)}>Email me →</a>
+        <a class="btn btn-light" href={book(subject)}>Book a 20-minute call →</a>
         <a class="btn btn-outline-light" href={whatsapp(`Hi Usama, I found you on usamaops.com. ${subject}:`)}>Message on WhatsApp</a>
+        <a class="btn btn-outline-light" href={mailto(subject)}>Email me</a>
       </div>
       <div class="contact-links">
         <a href={`mailto:${site.email}`}>{site.email}</a>
