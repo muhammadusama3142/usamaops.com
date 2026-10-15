@@ -172,7 +172,7 @@ export const services: Service[] = [
     proof: {
       kicker: 'Payments · cloud cost',
       title: 'From over $15,000 to about $4,000 a month',
-      body: 'A payments platform’s cloud bill had grown past $15,000 a month. I went through it service by service and cut the spend the platform didn’t need, bringing it to about $4,000 a month: more than 70% lower, and over $130,000 a year saved.',
+      body: 'A payments platform’s cloud bill had grown past $15,000 a month. I broke it down by service, started with the most expensive, and found where the platform was overpaying. I scaled resources down to what it needed, moved off oversized paid plans and dropped services it didn’t need. The bill came down to about $4,000 a month: more than 70% lower, and over $130,000 a year saved.',
     },
     faqs: [
       {

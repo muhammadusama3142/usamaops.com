@@ -126,9 +126,9 @@ const cases: { kicker: string; title: string; problem: string; did: string; resu
     kicker: 'Payments · cloud cost',
     title: 'Cloud bill cut from over $15,000 to about $4,000 a month',
     problem: 'Cloud spend for a payments platform had grown past $15,000 a month.',
-    did: 'Went through the bill service by service and cut the spend the platform didn’t need.',
+    did: 'Broke the bill down by service, starting with the most expensive. Found where the platform was overpaying, scaled resources down to what it needed, moved off oversized paid plans, and dropped services it didn’t need.',
     result: 'About $4,000 a month: more than 70% lower, over $130,000 a year saved.',
-    tags: ['Cloud cost', 'FinOps'],
+    tags: ['Cloud cost', 'Rightsizing', 'FinOps'],
   },
   {
     kicker: 'Payments · PCI DSS',
@@ -527,6 +527,10 @@ const aboutMeta = ['BSc Computer Science, GC University Lahore', 'AWS', 'Google 
     </section>
 
     <section class="container section about" id="about" aria-labelledby="about-title">
+      <picture class="about-photo">
+        <source type="image/webp" srcset="/images/usama-240.webp 240w, /images/usama-480.webp 480w" sizes="(max-width: 760px) 160px, 240px" />
+        <img src="/images/usama-480.jpg" alt="Muhammad Usama" width="240" height="240" loading="lazy" decoding="async" />
+      </picture>
       <div class="about-body">
         <p class="eyebrow">About</p>
         <h2 class="section-title" id="about-title">Hi, I’m Usama.</h2>
