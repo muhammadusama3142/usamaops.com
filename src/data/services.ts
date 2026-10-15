@@ -170,14 +170,14 @@ export const services: Service[] = [
       'A short plan for the bigger, riskier savings',
     ],
     proof: {
-      kicker: 'How I work',
-      title: 'Savings that don’t break production',
-      body: 'Every change goes through code review or infrastructure as code with a rollback plan, and anything risky is scheduled with your team. It’s how I work on payment infrastructure, where downtime isn’t an option.',
+      kicker: 'Payments · cloud cost',
+      title: 'From over $15,000 to about $4,000 a month',
+      body: 'A payments platform’s cloud bill had grown past $15,000 a month. I went through it service by service and cut the spend the platform didn’t need, bringing it to about $4,000 a month: more than 70% lower, and over $130,000 a year saved.',
     },
     faqs: [
       {
         q: 'How much can you save on our cloud bill?',
-        a: 'It depends on how the account has grown, so I won’t promise a number before looking. For teams spending at least $3,000 a month, I guarantee annualised savings of at least twice my fee, or you don’t pay.',
+        a: 'It depends on how the account has grown, so I won’t promise a number before looking. On one payments platform I took the bill from over $15,000 to about $4,000 a month. For teams spending at least $3,000 a month, I guarantee annualised savings of at least twice my fee, or you don’t pay.',
       },
       {
         q: 'Will cutting costs hurt performance or reliability?',
@@ -193,7 +193,6 @@ export const services: Service[] = [
       },
     ],
     related: ['infrastructure-audit', 'ai-integration', 'fractional-devops-engineer'],
-    proofHeading: 'Why it’s safe.',
     contactHeading: 'Let’s cut your cloud bill.',
     contactText: 'Send me a rough idea of your monthly cloud spend and which providers you use. I’ll tell you where I’d look first.',
   },
