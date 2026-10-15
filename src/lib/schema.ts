@@ -42,6 +42,7 @@ export const personNode = {
   name: site.name,
   alternateName: [site.brand, 'Usama'],
   url: homeUrl,
+  image: `${site.url}/images/usama.jpg`,
   email: site.email,
   telephone: site.phone,
   jobTitle: 'Senior DevOps & Site Reliability Engineer',

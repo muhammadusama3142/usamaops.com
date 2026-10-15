@@ -741,9 +741,31 @@ p {
 /* ---------- About ---------- */
 .about {
   padding-bottom: 96px;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 720px);
+  gap: 32px 56px;
+  align-items: start;
+}
+.about-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface-muted);
 }
 .about-body {
   max-width: 720px;
+}
+@media (max-width: 760px) {
+  .about {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .about-photo {
+    width: 160px;
+  }
 }
 .about-body p.about-text {
   margin-top: 22px;
